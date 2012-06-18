@@ -1,0 +1,101 @@
+--//-- sintaxe event --//--
+
+As of jQuery 1.6,
+ you can also pass an object to jQuery.Event()
+ and its properties will be set on the newly created Event object.
+
+  // Create a new jQuery.Event object with specified event properties.
+  var e = jQuery.Event("keydown", { keyCode: 64 });
+
+  // trigger an artificial keydown event with keyCode 64
+  jQuery("body").trigger( e );
+
+Certain events may have properties specific to them.
+ Those can be accessed as properties of the event.originalEvent object.
+ To make special properties available in all event objects,
+ they can be added to the jQuery.event.props array. This is not recommended,
+ since it adds overhead to every event delivered by jQuery.
+
+--//-- sintaxe trigger --//--
+
+.trigger( eventType [, extraParameters] )	.trigger( event )
+
+To trigger handlers bound via jQuery without also triggering the native event,
+ use .triggerHandler() instead.
+
+$('#foo').bind('custom', function(event, param1, param2) {
+  alert(param1 + "\n" + param2);
+});
+$('#foo').trigger('custom', ['Custom', 'Event']);
+
+$("p").click( function (event, a, b) {
+// when a normal click fires, a and b are undefined
+// for a trigger like below a refers to "foo" and b refers to "bar"
+} ).trigger("click", ["foo", "bar"]);
+
+var event = jQuery.Event("logged");	event.user = "foo";	event.pass = "bar";
+$("body").trigger(event);
+
+$("body").trigger({	type:"logged",	user:"foo",	pass:"bar"	});
+
+--//-- sintaxe triggerHandler --//--
+
+.triggerHandler( eventType [, extraParameters] )
+
+The .triggerHandler() method behaves similarly to .trigger(),
+ with the following exceptions:
+
+    The .triggerHandler() method does not cause the default behavior of an event to occur
+ (such as a form submission).
+    While .trigger() will operate on all elements matched by the jQuery object,
+ .triggerHandler() only affects the first matched element.
+    Events created with .triggerHandler() do not bubble up the DOM hierarchy;
+ if they are not handled by the target element directly, they do nothing.
+    Instead of returning the jQuery object (to allow chaining), .triggerHandler() returns
+ whatever value was returned by the last handler it caused to be executed.
+ If no handlers are triggered, it returns undefined
+
+--//-- sintaxe error --//--
+
+.error( handler(eventObject) )
+.error( [eventData], handler(eventObject) )
+
+This method is a shortcut for .bind('error', handler).
+
+--//-- uma possivel sintaxe bind --//--
+
+.bind( eventType [, eventData], handler(eventObject) )
+
+--//-- mau exemplo completo da sintaxe referida - sem eventData --//--
+
+var message = 'Spoon!';
+$('#foo').bind('click', function() {
+  alert(message);
+});
+message = 'Not in the face!';
+$('#bar').bind('click', function() {
+  alert(message);
+});
+
+Because the handlers are closures that both have message in their environment,
+ both will display the message Not in the face! when triggered.
+ The variable's value has changed.
+
+--//-- bom exemplo completo da sintaxe referida - com eventData --//--
+
+var message = 'Spoon!';
+$('#foo').bind('click', {msg: message}, function(event) {
+  alert(event.data.msg);
+});
+message = 'Not in the face!';
+$('#bar').bind('click', {msg: message}, function(event) {
+  alert(event.data.msg);
+});
+
+This time the variable is not referred to directly within the handlers;
+ instead, the variable is passed in by value through eventData,
+ which fixes the value at the time the event is bound.
+ The first handler will now display Spoon! while the second will alert Not in the face!
+
+    Note that objects are passed to functions by reference,
+ which further complicates this scenario.

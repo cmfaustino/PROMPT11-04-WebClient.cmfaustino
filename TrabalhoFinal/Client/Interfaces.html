@@ -1,0 +1,403 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Interfaces de Filmes</title>
+
+    <link rel="stylesheet" type="text/css" title="Default_PT" href="CSS/work/Default.css" media="screen,print" />
+    <link rel="alternate stylesheet" type="text/css" title="Matrix_PT" href="CSS/work/Matrix.css" media="screen,print" />
+    <link rel="alternate stylesheet" type="text/css" title="MadMen_EN" href="CSS/work/MadMen.css" media="screen,print" />
+    <link rel="alternate stylesheet" type="text/css" title="Infantil_PT_e_EN" href="CSS/work/Infantil.css" media="screen,print" />
+
+    <script type="text/javascript" src="Scripts/jquery/jquery-1.6.4.js"></script>
+
+<!--
+ script de browser detection para utilizacao com CSS's disponibilizado em
+ http://www.tvidesign.co.uk/blog/CSS-Browser-detection-using-jQuery-instead-of-hacks.aspx
+-->
+    <script type="text/javascript" src="Scripts/3rd_party/browserDetect.js"></script>
+
+<!--
+ script alterado (nao se utilizam cookies: set_cookie) a partir da base que se encontra em
+ http://www.thesitewizard.com/javascripts/change-style-sheets.shtml
+-->
+    <script type="text/javascript" src="Scripts/work/change_style_sheets.js"></script>
+</head>
+<body>
+    <nav id="nav_links">
+        <div id="links" style="text-align:center;">
+            <br />
+            <!--a id="linkinterfaces" href="Interfaces.html">Interfaces de Filmes</a><br /-->
+            <a id="linkformulariotemplate" href="FormCriarFilme_e_TemplateHTML.html">Formul&aacute;rio para Criar (Novo) Filme +
+                2 Exemplos de gera&ccedil;&atilde;o de Template HTML Cliente pr&eacute;-definida via JavaScript</a><br />
+            <a id="linklinq" href="LINQ.html">3 Exemplos de utiliza&ccedil;&atilde;o de LINQ via JavaScript</a><br />
+            <br />
+            <br />
+        </div>
+    </nav>
+    <section id="topo">
+
+<!--
+ menu ainda nao esta renderizado no firefox e no chrome...
+ apenas as tags li e as button sao apresentados !
+-->
+
+        <!--menu type="toolbar" id="menuPrincipal">
+                <command type="command" label="Interface Default (em PT)" icon="icons/pub.png" title="Interface Default (em PT)" id="cmdDefault" onclick="switch_style('Default_PT')">
+                <command type="command" label="Interface Matrix (em PT)" icon="icons/pub.png" title="Interface Matrix (em PT)" id="cmdMatrix" onclick="switch_style('Matrix_PT')">
+            <li>
+                <menu label="SubMenu">
+                    <button type="button" id="botaoDefault" onclick="switch_style('Default_PT')">Interface Default (em PT)</button>
+                    <button type="button" id="botaoMatrix" onclick="switch_style('Matrix_PT')">Interface Matrix (em PT)</button>
+                </menu>
+            </li>
+        </menu-->
+
+<!--
+ alternativa ao menu
+-->
+
+        <span id="altopt0">
+            <button type="button" id="btnDefault" onclick="switch_style('Default_PT')">Interface Default (em PT)</button>
+        </span>
+        <span id="altopt1">
+            <button type="button" id="btnMatrix" onclick="switch_style('Matrix_PT')">Interface Matrix (em PT)</button>
+        </span>
+        <span id="altopt2">
+            <button type="button" id="btnMadMen" onclick="switch_style('MadMen_EN')">Interface MadMen (em EN)</button>
+        </span>
+        <span id="altopt3">
+            <button type="button" id="btnInfantil" onclick="switch_style('Infantil_PT_e_EN')">Interface Infantil (mixed em PT e EN)</button>
+        </span>
+
+    </section>
+    <article class="movie" itemscope itemtype="http://schema.org/Movie">
+        <h1 class="titlemovie">
+            <span lang="en" itemprop="name">RoboCop</span>
+            <span lang="pt" itemprop="alternativeHeadline">Robocop - O polícia do futuro</span>
+        </h1>
+        <dl>
+            <dt class="imgdescmovie">Poster: </dt>
+                <dd class="ddimgmovie"><img itemprop="image" alt="RoboCop" title="RoboCop" src="http://ia.media-imdb.com/images/M/MV5BMTk1MDUzMTQ3OV5BMl5BanBnXkFtZTcwMDAwNTk0NA@@._V1._SY317_.jpg" class="imgmovie" /></dd>
+            <dt class="datedescmovie">
+                    <span lang="en">Year: </span>
+                    <span lang="pt">Ano: </span>
+            </dt>
+                <dd class="dddatemovie"><time itemprop="datePublished" datetime="1987-07-17" class="datemovie" lang="en">1987</time></dd>
+                <dd class="dddatemovie"><time datetime="1987-10-23" class="datemovie" lang="pt">1987</time></dd>
+            <dt class="durdescmovie">
+                    <span lang="en">Runtime: </span>
+                    <span lang="pt">Duração: </span>
+            </dt>
+                <dd class="dddurmovie"><span itemprop="duration" itemscope itemtype="http://schema.org/Duration" class="durmovie">102</span>
+<!--time class="durmovie" datetime="01:42">102</time-->
+                    <span class="durunitmovie" lang="en"> minutes</span>
+                    <span class="durunitmovie" lang="pt"> minutos</span></dd>
+            <dt class="dirdescmovie">
+                    <span lang="en">Director(s): </span>
+                    <span lang="pt">Realizador(es): </span>
+            </dt>
+                <dd itemprop="director" itemscope itemtype="http://schema.org/People" class="dddirmovie"><span class="dirmovie" itemprop="name">Paul Verhoeven</span></dd>
+            <dt class="actgrpdescmovie">
+                    <span lang="en">Starring: </span>
+                    <span lang="pt">Actor(e)s/Actriz(es): </span>
+            </dt>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Peter Weller</span><span class="charmovie">Alex James Murphy</span><span class="charmovie">RoboCop</span></dd>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Nancy Allen</span><span class="charmovie">Anne Lewis</span></dd>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Dan O'Herlihy</span><span class="charmovie">The Old Man</span></dd>
+            <dt class="plotdescmovie">
+                    <span lang="en">Brief Summary: </span>
+                    <span lang="pt">Breve Sinopse: </span>
+            </dt>
+                <dd class="ddplotmovie">
+                    <span itemprop="description" class="plotmovie" lang="en">In a dystopic & crime ridden Detroit, a terminally wounded cop returns to the force as a powerful cyborg with submerged memories haunting him.</span>
+                    <span class="plotmovie" lang="pt">Nas ruas de Detroit, após uma perseguição aos suspeitos de um assalto a um banco, um polícia, Alex Murphy, é brutalmente trucidado. Dado oficialmente como morto, Alex é transformado num moderno e poderoso cyborg, atormendado pelas memórias da sua morte e da família.</span>
+                </dd>
+            <dt class="catdescmovie">
+                    <span lang="en">Categories: </span>
+                    <span lang="pt">Categorias: </span>
+            </dt>
+                <dd class="ddcatmovie"><span class="catmovie" lang="en">Action</span></dd>
+                <dd class="ddcatmovie"><span itemprop="genre" class="catmovie" lang="en">Crime</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="en">Sci-Fi</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Acção</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Crime</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Ficção Científica</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Suspense</span></dd>
+        </dl>
+    </article>
+    <article class="movie" itemscope itemtype="http://schema.org/Movie">
+        <h1 class="titlemovie">
+            <span lang="en" itemprop="name">Avatar</span>
+            <span lang="pt" itemprop="alternativeHeadline">Avatar</span>
+        </h1>
+        <dl>
+            <dt class="imgdescmovie">Poster: </dt>
+                <dd class="ddimgmovie"><img itemprop="image" alt="Avatar" title="Avatar" src="http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1._SY317_CR0,0,214,317_.jpg" class="imgmovie" /></dd>
+            <dt class="datedescmovie">
+                    <span lang="en">Year: </span>
+                    <span lang="pt">Ano: </span>
+            </dt>
+                <dd class="dddatemovie"><time datetime="2009-12-18" class="datemovie" lang="en">2009</time></dd>
+                <dd class="dddatemovie"><time itemprop="datePublished" datetime="2009-12-17" class="datemovie" lang="pt">2009</time></dd>
+            <dt class="durdescmovie">
+                    <span lang="en">Runtime: </span>
+                    <span lang="pt">Duração: </span>
+            </dt>
+                <dd class="dddurmovie"><span itemprop="duration" itemscope itemtype="http://schema.org/Duration" class="durmovie">162</span>
+<!--time class="durmovie" datetime="02:42">162</time-->
+                    <span class="durunitmovie" lang="en"> minutes</span>
+                    <span class="durunitmovie" lang="pt"> minutos</span></dd>
+            <dt class="dirdescmovie">
+                    <span lang="en">Director(s): </span>
+                    <span lang="pt">Realizador(es): </span>
+            </dt>
+                <dd itemprop="director" itemscope itemtype="http://schema.org/People" class="dddirmovie"><span class="dirmovie" itemprop="name">James Cameron</span></dd>
+            <dt class="actgrpdescmovie">
+                    <span lang="en">Starring: </span>
+                    <span lang="pt">Actor(e)s/Actriz(es): </span>
+            </dt>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Sam Worthington</span><span class="charmovie">Jake Sully</span></dd>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Zoe Saldana</span><span class="charmovie">Neytiri</span></dd>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Sigourney Weaver</span><span class="charmovie">Grace Augustine</span></dd>
+            <dt class="plotdescmovie">
+                    <span lang="en">Brief Summary: </span>
+                    <span lang="pt">Breve Sinopse: </span>
+            </dt>
+                <dd class="ddplotmovie">
+                    <span itemprop="description" class="plotmovie" lang="en">A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.</span>
+                    <span class="plotmovie" lang="pt">No futuro, Jake (Sam Worthington), um veterano de guerra paraplégico, é levado para outro planeta, Pandora, que é habitado pelos Na'vi, uma raça humanóide com a sua própria língua e cultura. Os terráqueos vão entrar em contradição consigo e com a cultural local.</span>
+                </dd>
+            <dt class="catdescmovie">
+                    <span lang="en">Categories: </span>
+                    <span lang="pt">Categorias: </span>
+            </dt>
+                <dd class="ddcatmovie"><span class="catmovie" lang="en">Action</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="en">Adventure</span></dd>
+                <dd class="ddcatmovie"><span itemprop="genre" class="catmovie" lang="en">Fantasy</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Acção</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Aventura</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Fantasia</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Ficção Científica</span></dd>
+        </dl>
+    </article>
+    <article class="movie" itemscope itemtype="http://schema.org/Movie">
+        <h1 class="titlemovie">
+            <span lang="en" itemprop="name">Sneakers</span>
+            <span lang="pt" itemprop="alternativeHeadline">Heróis Por Acaso</span>
+        </h1>
+        <dl>
+            <dt class="imgdescmovie">Poster: </dt>
+                <dd class="ddimgmovie"><img itemprop="image" alt="Sneakers" title="Sneakers" src="http://ia.media-imdb.com/images/M/MV5BMTgxNDA2NjAyMV5BMl5BanBnXkFtZTcwNDkyNjcxMQ@@._V1._SY317_CR4,0,214,317_.jpg" class="imgmovie" /></dd>
+            <dt class="datedescmovie">
+                    <span lang="en">Year: </span>
+                    <span lang="pt">Ano: </span>
+            </dt>
+                <dd class="dddatemovie"><time itemprop="datePublished" datetime="1992-09-09" class="datemovie" lang="en">1992</time></dd>
+                <dd class="dddatemovie"><time datetime="1993-02-05" class="datemovie" lang="pt">1993</time></dd>
+            <dt class="durdescmovie">
+                    <span lang="en">Runtime: </span>
+                    <span lang="pt">Duração: </span>
+            </dt>
+                <dd class="dddurmovie"><span itemprop="duration" itemscope itemtype="http://schema.org/Duration" class="durmovie">126</span>
+<!--time class="durmovie" datetime="02:06">126</time-->
+                    <span class="durunitmovie" lang="en"> minutes</span>
+                    <span class="durunitmovie" lang="pt"> minutos</span></dd>
+            <dt class="dirdescmovie">
+                    <span lang="en">Director(s): </span>
+                    <span lang="pt">Realizador(es): </span>
+            </dt>
+                <dd itemprop="director" itemscope itemtype="http://schema.org/People" class="dddirmovie"><span class="dirmovie" itemprop="name">Phil Alden Robinson</span></dd>
+            <dt class="actgrpdescmovie">
+                    <span lang="en">Starring: </span>
+                    <span lang="pt">Actor(e)s/Actriz(es): </span>
+            </dt>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Robert Redford</span><span class="charmovie">Martin Bishop</span><span class="charmovie">Martin Brice</span></dd>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Dan Aykroyd</span><span class="charmovie">Darryl "Mother" Roskow</span></dd>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Sidney Poitier</span><span class="charmovie">Donald Crease</span></dd>
+            <dt class="plotdescmovie">
+                    <span lang="en">Brief Summary: </span>
+                    <span lang="pt">Breve Sinopse: </span>
+            </dt>
+                <dd class="ddplotmovie">
+                    <span itemprop="description" class="plotmovie" lang="en">Complex but lighthearted thriller about computers and cryptography, government and espionage, secrets and deception and betrayal.</span>
+                    <span class="plotmovie" lang="pt">Uma equipa de informáticos que se dedica a melhorar a segurança informática para os seus clientes vê-se confrontada com o derradeiro desafio.</span>
+                </dd>
+            <dt class="catdescmovie">
+                    <span lang="en">Categories: </span>
+                    <span lang="pt">Categorias: </span>
+            </dt>
+                <dd class="ddcatmovie"><span itemprop="genre" class="catmovie" lang="en">Comedy</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="en">Crime</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="en">Drama</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Comédia</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Crime</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Drama</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Mistério</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Suspense</span></dd>
+        </dl>
+    </article>
+    <article class="movie" itemscope itemtype="http://schema.org/Movie">
+        <h1 class="titlemovie">
+            <span lang="en" itemprop="name">Antitrust</span>
+            <span lang="pt" itemprop="alternativeHeadline">Conspiração.com</span>
+        </h1>
+        <dl>
+            <dt class="imgdescmovie">Poster: </dt>
+                <dd class="ddimgmovie"><img itemprop="image" alt="Antitrust" title="Antitrust" src="http://ia.media-imdb.com/images/M/MV5BMTk4NzE4MzQ1MF5BMl5BanBnXkFtZTcwMzkxNjUyMQ@@._V1._SY317_CR3,0,214,317_.jpg" class="imgmovie" /></dd>
+            <dt class="datedescmovie">
+                    <span lang="en">Year: </span>
+                    <span lang="pt">Ano: </span>
+            </dt>
+                <dd class="dddatemovie"><time itemprop="datePublished" datetime="2001-01-12" class="datemovie" lang="en">2001</time></dd>
+                <dd class="dddatemovie"><time datetime="2002-01-11" class="datemovie" lang="pt">2002</time></dd>
+            <dt class="durdescmovie">
+                    <span lang="en">Runtime: </span>
+                    <span lang="pt">Duração: </span>
+            </dt>
+                <dd class="dddurmovie"><span itemprop="duration" itemscope itemtype="http://schema.org/Duration" class="durmovie">109</span>
+<!--time class="durmovie" datetime="01:49">109</time-->
+                    <span class="durunitmovie" lang="en"> minutes</span>
+                    <span class="durunitmovie" lang="pt"> minutos</span></dd>
+            <dt class="dirdescmovie">
+                    <span lang="en">Director(s): </span>
+                    <span lang="pt">Realizador(es): </span>
+            </dt>
+                <dd itemprop="director" itemscope itemtype="http://schema.org/People" class="dddirmovie"><span class="dirmovie" itemprop="name">Peter Howitt</span></dd>
+            <dt class="actgrpdescmovie">
+                    <span lang="en">Starring: </span>
+                    <span lang="pt">Actor(e)s/Actriz(es): </span>
+            </dt>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Ryan Phillippe</span><span class="charmovie">Milo Hoffman</span></dd>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Tim Robbins</span><span class="charmovie">Gary Winston</span></dd>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Rachael Leigh Cook</span><span class="charmovie">Lisa Calighan</span></dd>
+            <dt class="plotdescmovie">
+                    <span lang="en">Brief Summary: </span>
+                    <span lang="pt">Breve Sinopse: </span>
+            </dt>
+                <dd class="ddplotmovie">
+                    <span itemprop="description" class="plotmovie" lang="en">A computer programmer's dream job at a hot Portland-based firm turns nightmarish when he discovers his boss has a secret and ruthless means of dispatching anti-trust problems.</span>
+                    <span class="plotmovie" lang="pt">Um informático consegue um emprego de sonho, até que este se transforma num pesadelo quando descobre que o patrão milionário (inspirado em Bill Gates) pode estar envolvido em práticas criminosas.</span>
+                </dd>
+            <dt class="catdescmovie">
+                    <span lang="en">Categories: </span>
+                    <span lang="pt">Categorias: </span>
+            </dt>
+                <dd class="ddcatmovie"><span itemprop="genre" class="catmovie" lang="en">Drama</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="en">Thriller</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Drama</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Suspense</span></dd>
+        </dl>
+    </article>
+    <article class="movie" itemscope itemtype="http://schema.org/Movie">
+        <h1 class="titlemovie">
+            <span lang="en" itemprop="name">Hackers</span>
+            <span lang="pt" itemprop="alternativeHeadline">Piratas Cibernéticos</span>
+        </h1>
+        <dl>
+            <dt class="imgdescmovie">Poster: </dt>
+                <dd class="ddimgmovie"><img itemprop="image" alt="Hackers" title="Hackers" src="http://ia.media-imdb.com/images/M/MV5BODg0NjQ5ODQ3OF5BMl5BanBnXkFtZTcwNjU4MjkzNA@@._V1._SY317_.jpg" class="imgmovie" /></dd>
+            <dt class="datedescmovie">
+                    <span lang="en">Year: </span>
+                    <span lang="pt">Ano: </span>
+            </dt>
+                <dd class="dddatemovie"><time itemprop="datePublished" datetime="1995-09-15" class="datemovie" lang="en">1995</time></dd>
+                <dd class="dddatemovie"><time datetime="1997-03-21" class="datemovie" lang="pt">1997</time></dd>
+            <dt class="durdescmovie">
+                    <span lang="en">Runtime: </span>
+                    <span lang="pt">Duração: </span>
+            </dt>
+                <dd class="dddurmovie"><span itemprop="duration" itemscope itemtype="http://schema.org/Duration" class="durmovie">107</span>
+<!--time class="durmovie" datetime="01:47">107</time-->
+                    <span class="durunitmovie" lang="en"> minutes</span>
+                    <span class="durunitmovie" lang="pt"> minutos</span></dd>
+            <dt class="dirdescmovie">
+                    <span lang="en">Director(s): </span>
+                    <span lang="pt">Realizador(es): </span>
+            </dt>
+                <dd itemprop="director" itemscope itemtype="http://schema.org/People" class="dddirmovie"><span class="dirmovie" itemprop="name">Iain Softley</span></dd>
+            <dt class="actgrpdescmovie">
+                    <span lang="en">Starring: </span>
+                    <span lang="pt">Actor(e)s/Actriz(es): </span>
+            </dt>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Jonny Lee Miller</span><span class="charmovie">Dade Murphy</span><span class="charmovie">Crash Override</span><span class="charmovie">Zero Cool</span></dd>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Angelina Jolie</span><span class="charmovie">Kate Libby</span><span class="charmovie">Acid Burn</span></dd>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Jesse Bradford</span><span class="charmovie">Joey Pardella</span></dd>
+            <dt class="plotdescmovie">
+                    <span lang="en">Brief Summary: </span>
+                    <span lang="pt">Breve Sinopse: </span>
+            </dt>
+                <dd class="ddplotmovie">
+                    <span itemprop="description" class="plotmovie" lang="en">A young boy is arrested by the US Secret Service for writing a computer virus and is banned from using a computer until his 18th birthday. Years later, he and his new-found friends discover a plot to unleash a dangerous computer virus, but they must use their computer skills to find the evidence while being pursued by the Secret Service and the evil computer genius behind the virus.</span>
+                    <span class="plotmovie" lang="pt">Dade Murphy é um hacker conhecido como Zero Cool que aos onze anos de idade invadiu 1507 computadores, inclusive o computador da Wall Street, causando uma queda de 7 pontos na bolsa em um único dia, sendo condenado até os 18 anos, a ficar longe de um computador ou telefone digital. Mas, em breve, ele vai-se envolver numa guerra entre corporações, e assim, volta aos computadores.</span>
+                </dd>
+            <dt class="catdescmovie">
+                    <span lang="en">Categories: </span>
+                    <span lang="pt">Categorias: </span>
+            </dt>
+                <dd class="ddcatmovie"><span itemprop="genre" class="catmovie" lang="en">Action</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="en">Crime</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="en">Drama</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Acção</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Crime</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Drama</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Suspense</span></dd>
+        </dl>
+    </article>
+    <article class="movie" itemscope itemtype="http://schema.org/Movie">
+        <h1 class="titlemovie">
+            <span lang="en" itemprop="name">The Matrix</span>
+            <span lang="pt" itemprop="alternativeHeadline">Matrix</span>
+        </h1>
+        <dl>
+            <dt class="imgdescmovie">Poster: </dt>
+                <dd class="ddimgmovie"><img itemprop="image" alt="The Matrix" title="The Matrix" src="http://ia.media-imdb.com/images/M/MV5BMjEzNjg1NTg2NV5BMl5BanBnXkFtZTYwNjY3MzQ5._V1._SY317_CR6,0,214,317_.jpg" class="imgmovie" /></dd>
+            <dt class="datedescmovie">
+                    <span lang="en">Year: </span>
+                    <span lang="pt">Ano: </span>
+            </dt>
+                <dd class="dddatemovie"><time itemprop="datePublished" datetime="1999-03-31" class="datemovie" lang="en">1999</time></dd>
+                <dd class="dddatemovie"><time datetime="1999-06-25" class="datemovie" lang="pt">1999</time></dd>
+            <dt class="durdescmovie">
+                    <span lang="en">Runtime: </span>
+                    <span lang="pt">Duração: </span>
+            </dt>
+                <dd class="dddurmovie"><span itemprop="duration" itemscope itemtype="http://schema.org/Duration" class="durmovie">136</span>
+<!--time class="durmovie" datetime="02:16">136</time-->
+                    <span class="durunitmovie" lang="en"> minutes</span>
+                    <span class="durunitmovie" lang="pt"> minutos</span></dd>
+            <dt class="dirdescmovie">
+                    <span lang="en">Director(s): </span>
+                    <span lang="pt">Realizador(es): </span>
+            </dt>
+                <dd itemprop="director" itemscope itemtype="http://schema.org/People" class="dddirmovie"><span class="dirmovie" itemprop="name">Andy Wachowski</span></dd>
+                <dd class="dddirmovie"><span class="dirmovie">Lana Wachowski</span></dd>
+            <dt class="actgrpdescmovie">
+                    <span lang="en">Starring: </span>
+                    <span lang="pt">Actor(e)s/Actriz(es): </span>
+            </dt>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Keanu Reeves</span><span class="charmovie">Thomas A. Anderson</span><span class="charmovie">Neo</span></dd>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Laurence Fishburne</span><span class="charmovie">Morpheus</span></dd>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">Carrie-Anne Moss</span><span class="charmovie">Trinity</span></dd>
+            <dt class="plotdescmovie">
+                    <span lang="en">Brief Summary: </span>
+                    <span lang="pt">Breve Sinopse: </span>
+            </dt>
+                <dd class="ddplotmovie">
+                    <span itemprop="description" class="plotmovie" lang="en">A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.</span>
+                    <span class="plotmovie" lang="pt">Thomas A. Anderson trabalha como programador de computadores durante o dia e à noite ele se torna o hacker conhecido como Neo. Neo sempre questionou a realidade, mas a verdade está muito além da sua imaginação. Ele passa a ser perseguido pela polícia quando é contatado por Morpheus, um lendário hacker considerado terrorista pelo governo. Morpheus desperta Neo para o mundo real, uma terra devastada onde uma raça de máquinas aprisionou a maior parte da humanidade para se alimentar do calor de seus corpos. As mentes das pessoas estão aprisionadas numa realidade artificial chamada Matrix. Neo se torna um rebelde contra as máquinas, e precisa voltar à Matrix para enfrentar os agentes, programas de computador super poderosos cujo objetivo é exterminar Neo e os demais humanos rebeldes.</span>
+                </dd>
+            <dt class="catdescmovie">
+                    <span lang="en">Categories: </span>
+                    <span lang="pt">Categorias: </span>
+            </dt>
+                <dd class="ddcatmovie"><span itemprop="genre" class="catmovie" lang="en">Action</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="en">Adventure</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="en">Sci-Fi</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Acção</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Aventura</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">Ficção Científica</span></dd>
+        </dl>
+    </article>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!--
+ -->
+    <article class="movie" itemscope itemtype="http://schema.org/Movie">
+        <h1 class="titlemovie">
+            <span lang="en" $(titleMainIsEN)>$(titleEN)</span>
+            <span lang="pt" $(titleMainIsPT)>$(titlePT)</span>
+        </h1>
+        <dl>
+            <dt class="imgdescmovie">Poster: </dt>
+                <dd class="ddimgmovie"><img itemprop="image" alt="$(title)" title="$(title)" src="$(image)" class="imgmovie" /></dd>
+            <dt class="datedescmovie">
+                    <span lang="en">Year: </span>
+                    <span lang="pt">Ano: </span>
+            </dt>
+                <dd class="dddatemovie"><time $(dateMainIsEN) datetime="$(dateEN)" class="datemovie" lang="en">$(yearEN)</time></dd>
+                <dd class="dddatemovie"><time $(dateMainIsPT) datetime="$(datePT)" class="datemovie" lang="pt">$(yearPT)</time></dd>
+            <dt class="durdescmovie">
+                    <span lang="en">Runtime: </span>
+                    <span lang="pt">Duração: </span>
+            </dt>
+                <dd class="dddurmovie"><span itemprop="duration" itemscope itemtype="http://schema.org/Duration" class="durmovie">$(duration)</span>
+<!--time class="durmovie" datetime="__:__">$(duration)</time-->
+                    <span class="durunitmovie" lang="en"> minutes</span>
+                    <span class="durunitmovie" lang="pt"> minutos</span></dd>
+            <dt class="dirdescmovie">
+                    <span lang="en">Director(s): </span>
+                    <span lang="pt">Realizador(es): </span>
+            </dt>
+                <dd $(dirATTRscope) class="dddirmovie"><span class="dirmovie" $(dirATTRname)>$(director1)</span></dd>
+                <dd class="dddirmovie"><span class="dirmovie">$(director2)</span></dd>
+            <dt class="actgrpdescmovie">
+                    <span lang="en">Starring: </span>
+                    <span lang="pt">Actor(e)s/Actriz(es): </span>
+            </dt>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">$(act1)</span><span class="charmovie">$(act1char1)</span><span class="charmovie">$(act1char2)</span><span class="charmovie">$(act1char3)</span></dd>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">$(act2)</span><span class="charmovie">$(act2char1)</span><span class="charmovie">$(act2char2)</span><span class="charmovie">$(act2char3)</span></dd>
+                <dd itemprop="actors" itemscope itemtype="http://schema.org/People" class="ddactmovie"><span class="actmovie" itemprop="name">$(act3)</span><span class="charmovie">$(act3char1)</span><span class="charmovie">$(act3char2)</span><span class="charmovie">$(act3char3)</span></dd>
+            <dt class="plotdescmovie">
+                    <span lang="en">Brief Summary: </span>
+                    <span lang="pt">Breve Sinopse: </span>
+            </dt>
+                <dd class="ddplotmovie">
+                    <span $(sinopseMainIsEN) class="plotmovie" lang="en">$(sinopseEN)</span>
+                    <span $(sinopseMainIsPT) class="plotmovie" lang="pt">$(sinopsePT)</span>
+                </dd>
+            <dt class="catdescmovie">
+                    <span lang="en">Categories: </span>
+                    <span lang="pt">Categorias: </span>
+            </dt>
+                <dd class="ddcatmovie"><span $(catMainIsEN) class="catmovie" lang="en">$(cat1EN)</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="en">$(cat2EN)</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="en">$(cat3EN)</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="en">$(cat4EN)</span></dd>
+                <dd class="ddcatmovie"><span $(catMainIsPT) class="catmovie" lang="pt">$(cat1PT)</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">$(cat2PT)</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">$(cat3PT)</span></dd>
+                <dd class="ddcatmovie"><span class="catmovie" lang="pt">$(cat4PT)</span></dd>
+        </dl>
+    </article>

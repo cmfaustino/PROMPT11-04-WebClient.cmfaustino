@@ -1,0 +1,227 @@
+        /*
+         * Matrix.css (Matrix_PT em Interfaces.html)
+         *
+         * esconde os itens em Ingles abaixo da classe movie,
+         * esconde alguns titulos de itens, ou seja, nao sao os itens em si, so' os titulos
+         * ( imgdescmovie = Poster , datedescmovie = Ano , durdescmovie = Duracao ,
+         *   plotdescmovie = Sinopse ),
+         * coloca background a preto, fonte com mesma largura, e letras em varias cores,
+         * coloca alguns dados em "estilo matrix" (texto vertical, letras horizontais),
+         * excepto a sinopse que e' grande demais para esse efeito.
+         */
+
+/*
+ * adaptado de
+ * http://net.tutsplus.com/tutorials/html-css-techniques/the-easiest-way-to-create-vertical-text-with-css/
+ * 
+ * utilizacao de Method 4 e de Method 6 (em)
+ *             width: 1em ;
+ *             font-size: 1em ;
+ *             word-wrap: break-word ;
+ *
+ * utilizacao de Method 7
+ *             white-space: pre ;
+ *
+ * com recurso a browser detection descrita em
+ * http://www.tvidesign.co.uk/blog/CSS-Browser-detection-using-jQuery-instead-of-hacks.aspx
+ *
+ * e "the second CSS rule will always take precedence" referida em
+ * http://www.webcredible.co.uk/user-friendly-resources/css/hacks-browser-detection.shtml
+ */
+
+-* { border-style: solid ; border-width: 1px ; border-color: cyan ; } /* apenas para debug */
+
+        #btnMatrix { font-weight: bolder ; background-color: darkgrey ; }
+
+        .movie *[lang="en"] { display: none ; }
+
+        .imgdescmovie { display: none ; }
+        .datedescmovie { display: none ; }
+        .durdescmovie { display: none ; }
+        .plotdescmovie { display: none ; }
+
+        body { background-color: black ; }
+        .movie * { font-family: "Courier New", Courier, monospace ; }
+
+        .movie {
+            clear: both ; /* devido ao float: left nos descendentes */
+            margin: 0em ;
+        }
+        .movie:first-of-type {
+            padding-top: 0em ;
+        }
+        .movie:not(:first-of-type) {
+            padding-top: 1em ;
+        }
+
+/* titulo */
+        .titlemovie {
+            color: lime ;
+            /* position: absolute ; */
+            float: left ;
+            margin: 0em ;
+
+            width: 1em ;
+            font-size: 0.75em ;
+            word-wrap: break-word ;
+        }
+        .browserFirefox .titlemovie { width: 1em ; /* browser detection: firefox */ }
+        .browserChrome .titlemovie { width: 0.50em ; /* browser detection: chrome */ }
+        .titlemovie span {
+            /* apenas em itens, e nao em nomes de itens */
+            white-space: pre-wrap ;
+        }
+        .browserFirefox .titlemovie span { white-space: pre-wrap ; /* browser detection: firefox */ }
+        .browserChrome .titlemovie span { white-space: pre ; /* browser detection: chrome */ }
+/* cor para outros itens sem serem titulo */
+        .movie:not(.titlemovie) {
+            color: red ;
+        }
+
+/* lista */
+        dl {
+            /* width: 640px ; */
+            margin: 0em ;
+        }
+/* definicao */
+        dd {
+            display: inline ;
+            margin: 0em ;
+        }
+/* imagem */
+        .imgmovie {
+            float: left ;
+        }
+
+/* data/ano */
+        .datemovie {
+            color: lightgreen ;
+            /* position: absolute ; */
+            float: left ;
+
+            width: 1em ;
+            font-size: 1.5em ;
+            word-wrap: break-word ;
+        }
+
+/* duracao */
+        .dddurmovie /*, .durmovie , .durunitmovie*/ {
+            color: lightblue ;
+            /* position: absolute ; */
+            float: left ;
+
+            width: 1em ;
+            font-size: 1em ;
+            word-wrap: break-word ;
+        }
+        .browserFirefox .dddurmovie /*, .durmovie , .durunitmovie*/ { width: 1em ; /* browser detection: firefox */ }
+        .browserChrome .dddurmovie /*, .durmovie , .durunitmovie*/ { width: 0.50em ; /* browser detection: chrome */ }
+        .durmovie , .durunitmovie {
+            /* apenas em itens, e nao em nomes de itens */
+            white-space: pre-wrap ;
+        }
+        .browserFirefox .durmovie , .browserFirefox .durunitmovie { white-space: pre-wrap ; /* browser detection: firefox */ }
+        .browserChrome .durmovie , .browserChrome .durunitmovie { white-space: pre ; /* browser detection: chrome */ }
+
+/* realizador */
+        .dirdescmovie , .dirdescmovie>span:lang(pt) {
+            display: inline ;
+            margin-left: 1em ;
+        }
+        .dirdescmovie>span:lang(pt) , .dirmovie {
+            color: lightcoral ;
+            /* position: absolute ; */
+            float: left ;
+            left: 1em ;
+
+            width: 1em ;
+            font-size: 1em ;
+            word-wrap: break-word ;
+        }
+        .dirmovie {
+            /* apenas em itens, e nao em nomes de itens */
+            white-space: pre-wrap ;
+        }
+        .browserFirefox .dirmovie { white-space: pre-wrap ; /* browser detection: firefox */ }
+        .browserChrome .dirmovie { white-space: pre ; /* browser detection: chrome */ }
+
+/* actores e personagens */
+        .actgrpdescmovie , .actgrpdescmovie>span:lang(pt) {
+            display: inline ;
+            margin-left: 1em ;
+        }
+        .actgrpdescmovie>span:lang(pt) , .actmovie , .charmovie {
+            /* position: absolute ; */
+            float: left ;
+
+            width: 1em ;
+            font-size: 1em ;
+            word-wrap: break-word ;
+        }
+        .actmovie , .charmovie {
+            /* apenas em itens, e nao em nomes de itens */
+            white-space: pre-wrap ;
+        }
+        .browserFirefox .actmovie , .browserFirefox .charmovie { white-space: pre-wrap ; /* browser detection: firefox */ }
+        .browserChrome .actmovie , .browserChrome .charmovie { white-space: pre ; /* browser detection: chrome */ }
+        .actgrpdescmovie>span:lang(pt) , .actmovie {
+            color: gold ;
+        }
+        .charmovie {
+            color: darkorange ;
+        }
+
+/* sinopse */
+        .ddplotmovie /*, .plotmovie*/ {
+            display: inline ;
+            margin-left: 1em ;
+
+            color: lightblue ;
+            /* position: absolute ; */
+            float: right ; /*left ;*/
+
+            width: 10em ;
+            /* height: 5em ; */
+            font-size: 1em ;
+            word-wrap: break-word ;
+        }
+        .plotmovie {
+            /* apenas em itens, e nao em nomes de itens */
+            white-space: pre-wrap ;
+        }
+        .browserFirefox .plotmovie { white-space: pre-wrap ; /* browser detection: firefox */ }
+        .browserChrome .plotmovie { white-space: pre ; /* browser detection: chrome */ }
+
+/* categorias */
+        .catdescmovie , .catdescmovie>span:lang(pt) {
+            display: inline ;
+            margin-left: 1em ;
+        }
+        .catdescmovie>span:lang(pt) , .catmovie {
+            color: magenta ;
+            left: 1em ;
+
+            width: 1em ;
+            font-size: 1em ;
+            word-wrap: break-word ;
+        }
+        .catdescmovie>span:lang(pt) {
+            /* position: absolute ; */
+            float: /*right ;*/ left ;
+        }
+        .catmovie {
+            /* position: absolute ; */
+            float: /*right ;*/ left ;
+
+            /* apenas em itens, e nao em nomes de itens */
+            white-space: pre-wrap ;
+        }
+        .browserFirefox .catmovie { white-space: pre-wrap ; /* browser detection: firefox */ }
+        .browserChrome .catmovie { white-space: pre ; /* browser detection: chrome */ }
+
+/*
+ * TODO: EXPERT VERSION: colocar o ano/date em baixo de minutos/durunit, ou em cima de duracao/dur
+ * TODO: EXPERT VERSION: colocar o primeiro personagem/.charmovie:first-of-type em baixo de actor/actriz .actmovie
+ * TODO: EXPERT VERSION: colocar sinopse/.ddplotmovie ou .plotmovie sem width , mas que ocupe o resto livre 'a direita das categorias
+ * TODO: EXPERT VERSION: colocar sinopse/.ddplotmovie ou .plotmovie com efeito matrix e que tenha uma height que, depois, faca break para coluna 'a direita
+ */

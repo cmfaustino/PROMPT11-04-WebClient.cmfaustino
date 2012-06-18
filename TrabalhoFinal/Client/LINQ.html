@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Exemplos de utiliza&ccedil;&atilde;o LINQ</title>
+
+    <link rel="stylesheet" type="text/css" title="Default_PT" href="CSS/work/Default.css" media="screen,print" />
+
+    <script type="text/javascript" src="Scripts/jquery/jquery-1.6.4.js"></script>
+
+    <script type="text/javascript" src="Scripts/json/json2.js"></script>
+
+    <script type="text/javascript" src="Scripts/work/obj.base.js"></script>
+
+    <script type="text/javascript" src="Scripts/work/linq.js"></script>
+</head>
+<body>
+    <nav id="nav_links">
+        <div id="links" style="text-align:center;">
+            <br />
+            <a id="linkinterfaces" href="Interfaces.html">Interfaces de Filmes</a><br />
+            <a id="linkformulariotemplate" href="FormCriarFilme_e_TemplateHTML.html">Formul&aacute;rio para Criar (Novo) Filme +
+                2 Exemplos de gera&ccedil;&atilde;o de Template HTML Cliente pr&eacute;-definida via JavaScript</a><br />
+            <!--a id="linklinq" href="LINQ.html">3 Exemplos de utiliza&ccedil;&atilde;o de LINQ via JavaScript</a><br /-->
+            <br />
+            <br />
+        </div>
+    </nav>
+
+<pre><code>
+var approvedStudentNames = linq.from(students)
+                               .where(function() { return this.grade > 10; })
+                               .orderBy(function() { return this.number; })
+                               .select(function() { return this.name;});
+</code></pre>
+
+    <script type="text/javascript">
+<!--
+
+/*
+ * INICIO DA AREA DE DEMONSTRACAO DE linq *
+ */
+
+// exemplo do enunciado
+
+//var approvedStudentNames = linq.from(students)
+//                               .where(function() { return this.grade > 10; })
+//                               .orderBy(function() { return this.number; })
+//                               .select(function() { return this.name;});
+
+// exemplo do enunciado decomposto
+
+var students = [
+                 { name: "Carlos Bat. Faustino" ,
+                   number: 37890 ,
+                   grade: 7 }
+               , { name: "Gonçalo Vilhena" ,
+                   number: 62159 ,
+                   grade: 19 }
+               , { name: "Luis M. D. C. Pereira" ,
+                   number: 37591 ,
+                   grade: 17 }
+               , { name: "Luís Zacarias" ,
+                   number: 26626 ,
+                   grade: 9 }
+               , { name: "Rui Pinheiro" ,
+                   number: 67696 ,
+                   grade: 8 }
+               , { name: "Sandra Pat. Ferreira" ,
+                   number: 47580 ,
+                   grade: 18 }
+               ] ;
+
+document.writeln("<p>Objecto students :</p>");
+document.writeln("<pre><code>");
+document.writeln( JSON.stringify( students ) );
+document.writeln("</code></pre>");
+
+var approvedStudentNames1 = linq.from(students) ;
+
+document.writeln("<p>Resultado de linq.from(students) :</p>");
+document.writeln("<pre><code>");
+document.writeln( JSON.stringify( approvedStudentNames1 ) );
+document.writeln("</code></pre>");
+
+var approvedStudentNames2 =
+ approvedStudentNames1.where(function() { return this.grade > 10; }) ;
+
+document.writeln("<p>Resultado de .where(function() { return this.grade > 10; }) :</p>");
+document.writeln("<pre><code>");
+document.writeln( JSON.stringify( approvedStudentNames2 ) );
+document.writeln("</code></pre>");
+
+var approvedStudentNames3 =
+ approvedStudentNames2.orderBy(function() { return this.number; }) ;
+
+document.writeln("<p>Resultado de .orderBy(function() { return this.number; }) :</p>");
+document.writeln("<pre><code>");
+document.writeln( JSON.stringify( approvedStudentNames3 ) );
+document.writeln("</code></pre>");
+
+var approvedStudentNames4 =
+ approvedStudentNames3.select(function() { return this.name;}) ;
+
+document.writeln("<p>Resultado de .select(function() { return this.name;}) :</p>");
+document.writeln("<pre><code>");
+document.writeln( JSON.stringify( approvedStudentNames4 ) );
+document.writeln("</code></pre>");
+
+var approvedStudentNames = linq.from(students)
+                               .where(function() { return this.grade > 10; })
+                               .orderBy(function() { return this.number; })
+                               .select(function() { return this.name;});
+
+document.writeln("<p>Resultado de todas as operacoes acima descritas,"
+ + " mas encadeadas de uma s&oacute; vez:</p>");
+document.writeln("<pre><code>");
+document.writeln( JSON.stringify( approvedStudentNames ) );
+document.writeln("</code></pre>");
+
+var badArray = 2 ;
+
+document.writeln("<p>Objecto badArray :</p>");
+document.writeln("<pre><code>");
+document.writeln( JSON.stringify( badArray ) );
+document.writeln("</code></pre>");
+
+var badArrayResult = linq.from(students)
+                               .where(function() { return this.grade > 10; })
+                               .orderBy(function() { return this.number; })
+                               .select(function() { return this.name;});
+
+document.writeln("<p>Resultado de todas as operacoes acima descritas,"
+ + " mas encadeadas de uma s&oacute; vez, utilizando badArray :</p>");
+document.writeln("<pre><code>");
+document.writeln( JSON.stringify( badArrayResult ) );
+document.writeln("</code></pre>");
+
+/*
+ * FINAL DA AREA DE DEMONSTRACAO DE linq *
+ */
+
+// -->
+    </script>
+
+</body>
+</html>

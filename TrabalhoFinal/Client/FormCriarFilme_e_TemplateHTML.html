@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Formul&aacute;rio de Cria&ccedil;&atilde;o de Filme + 2 Exemplos de Templates HTML</title>
+
+    <!--link rel="stylesheet" type="text/css" title="Default_PT" href="CSS/work/Default.css" media="screen,print" /-->
+
+<!--
+ UTILIZAR PARA DATEPICKER
+ EXPLICADO EM:
+ http://css-tricks.com/8678-progressively-enhancing-html5-forms/
+ http://jqueryui.com/demos/datepicker/
+ http://docs.jquery.com/UI/Datepicker
+-->
+    <link rel="stylesheet" type="text/css" title="jQuery_UI_numeric_custom_form" href="CSS/jquery/themes/base/jquery.ui.all.css" />
+
+<!--
+ UTILIZAR PARA NUMERIC (NUMBER PICKER)
+ EXPLICADO EM:
+ http://plugins.jquery.com/plugin-tags/number-picker
+ https://github.com/flamewave/jquery-ui-numeric
+-->
+    <link rel="stylesheet" type="text/css" title="jQuery_UI_numeric_custom_form" href="CSS/3rd_party/jquery-ui-numeric.css" />
+    <link rel="stylesheet" type="text/css" title="jQuery_UI_numeric_custom_form" href="CSS/work/jquery-ui-numeric_custom.css" />
+
+    <link rel="stylesheet" type="text/css" title="jQuery_UI_numeric_custom_form" href="CSS/work/form.css" />
+
+    <script type="text/javascript" src="Scripts/jquery/jquery-1.6.4.js"></script>
+
+<!--
+ UTILIZAR PARA DATEPICKER
+ EXPLICADO EM:
+ http://css-tricks.com/8678-progressively-enhancing-html5-forms/
+ http://jqueryui.com/demos/datepicker/
+ http://docs.jquery.com/UI/Datepicker
+-->
+    <script type="text/javascript" src="Scripts/jquery/ui/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="Scripts/jquery/ui/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="Scripts/jquery/ui/jquery.ui.datepicker.js"></script>
+    <script type="text/javascript" src="Scripts/jquery/ui/i18n/jquery.ui.datepicker-pt.js"></script>
+
+<!--
+ UTILIZAR PARA NUMERIC (NUMBER PICKER)
+ EXPLICADO EM:
+ http://plugins.jquery.com/plugin-tags/number-picker
+ https://github.com/flamewave/jquery-ui-numeric
+-->
+    <script type="text/javascript" src="Scripts/jquery/ui/jquery.ui.button.js"></script>
+    <script type="text/javascript" src="Scripts/3rd_party/jquery-ui-numeric.js"></script>
+
+<!--
+ SOLUCAO ADAPTADA DAS REFERIDAS EM:
+ http://stackoverflow.com/questions/285522/find-html-label-associated-with-a-given-input
+ http://stackoverflow.com/questions/952924/javascript-chop-slice-trim-off-last-character-in-string
+-->
+    <script type="text/javascript" src="Scripts/work/obj.base.js"></script>
+    <script type="text/javascript" src="Scripts/work/obj.inputs_labels.js"></script>
+
+    <script type="text/javascript" src="Scripts/work/jquery-ui-numeric_custom.js"></script>
+
+    <script type="text/javascript" src="Scripts/work/form.js"></script>
+</head>
+<body>
+    <nav id="nav_links">
+        <div id="links" style="text-align:center;">
+            <br />
+            <a id="linkinterfaces" href="Interfaces.html">Interfaces de Filmes</a><br />
+            <!--a id="linkformulariotemplate" href="FormCriarFilme_e_TemplateHTML.html">Formul&aacute;rio para Criar (Novo) Filme +
+                2 Exemplos de gera&ccedil;&atilde;o de Template HTML Cliente pr&eacute;-definida via JavaScript</a><br /-->
+            <a id="linklinq" href="LINQ.html">3 Exemplos de utiliza&ccedil;&atilde;o de LINQ via JavaScript</a><br />
+            <br />
+            <br />
+        </div>
+    </nav>
+
+<!--
+  FORMULARIO ADAPTADO A PARTIR DO FORMULARIO DO EXERCICIO (RESOLVIDO) DA 1a SESSAO
+  Implementação de formulário para criação de enunciado de trabalho (Create Work Item)
+  https://github.com/CCISEL/PROMPT11-04-WebClient/wiki/Enunciados%20da%201%C2%AA%20sess%C3%A3o
+  https://github.com/CCISEL/PROMPT11-04-WebClient/blob/master/src/Exercises/HTML-JavaScript/form/form.html
+-->
+
+    <article class="article_form">
+        <h1 id="area_form" style="display: inline ;">Formul&aacute;rio de Cria&ccedil;&atilde;o de Novo Filme</h1>
+        (<a href="#area_template">ver resultado em baixo</a>)
+        <form onsubmit="javascript:adicionaTemplate(this);" action="/something/create" enctype="multipart/form-data" method="post" id="form_form" name="form_form">
+            <fieldset><!-- class="views"-->
+                    <p>
+                        <span id="idiomaPreenchimentolabel"
+                         onclick="setRadioFirstOption('idiomaPreenchimento','showEN_hidePT_fields()');">Altern&acirc;ncia da (Selecção da) Vista dos Campos para Preenchimento:</span>
+
+                        <input type="radio" name="idiomaPreenchimento" id="idiomaPreenchimentoEN" value="preencherEN"
+                         onmouseover="label2title(this,' - ','idiomaPreenchimentolabel');"
+                         onclick="showEN_hidePT_fields();">
+
+                        <label for="idiomaPreenchimentoEN" id="idiomaPreenchimentoENlabel"
+                         onmouseover="label2title(this,' - ','idiomaPreenchimentolabel',this.id);"
+                         onclick="showEN_hidePT_fields();">Dados Ingleses</label>
+
+                        <input type="radio" name="idiomaPreenchimento" id="idiomaPreenchimentoPT" value="preencherPT"
+                         onmouseover="label2title(this,' - ','idiomaPreenchimentolabel');"
+                         onclick="showPT_hideEN_fields();">
+
+                        <label for="idiomaPreenchimentoPT" id="idiomaPreenchimentoPTlabel"
+                         onmouseover="label2title(this,' - ','idiomaPreenchimentolabel',this.id);"
+                         onclick="showPT_hideEN_fields();">Dados Portugueses</label>
+
+                        <input type="radio" name="idiomaPreenchimento" id="idiomaPreenchimentoAmbos" value="preencherAmbos"
+                         onmouseover="label2title(this,' - ','idiomaPreenchimentolabel');"
+                         onclick="showENandPT_fields();">
+
+                        <label for="idiomaPreenchimentoAmbos" id="idiomaPreenchimentoAmboslabel"
+                         onmouseover="label2title(this,' - ','idiomaPreenchimentolabel',this.id);"
+                         onclick="showENandPT_fields();">Ambos (Dados Ingleses e Portugueses)</label>
+                    </p>
+            </fieldset>
+            <fieldset><!-- class="edit"-->
+                <fieldset><!-- class="titles"-->
+                    <legend>T&iacute;tulos</legend>
+                    <p class="dados_form_EN">
+                        <label for="tituloEN">T&iacute;tulo (em Ingl&ecirc;s):</label>
+                        <input type="text" id="tituloEN" name="tituloEN" required="required" size="50" maxlength="255"
+                         onmouseover="label2title(this);">
+                    </p>
+                    <p class="dados_form_PT">
+                        <label for="tituloPT">T&iacute;tulo (em Portugu&ecirc;s):</label>
+                        <input type="text" id="tituloPT" name="tituloPT" required="required" size="50" maxlength="255"
+                         onmouseover="label2title(this);">
+                    </p>
+                    <p>
+                        <span id="idiomaOficiallabel"
+                         onclick="setRadioFirstOption('idiomaOficial');">Idioma Oficial/Prim&aacute;rio:</span>
+
+                        <input type="radio" name="idiomaOficial" id="idiomaOficialEN" value="EN" required="required"
+                         onmouseover="label2title(this,' - ','idiomaOficiallabel');">
+
+                        <label for="idiomaOficialEN" id="idiomaOficialENlabel"
+                         onmouseover="label2title(this,' - ','idiomaOficiallabel',this.id);">Ingl&ecirc;s</label>
+
+                        <input type="radio" name="idiomaOficial" id="idiomaOficialPT" value="PT"
+                         onmouseover="label2title(this,' - ','idiomaOficiallabel');">
+
+                        <label for="idiomaOficialPT" id="idiomaOficialPTlabel"
+                         onmouseover="label2title(this,' - ','idiomaOficiallabel',this.id);">Portugu&ecirc;s</label>
+                    </p>
+                </fieldset>
+                    <p>
+                        <label for="imagemURL">URL de imagem/poster:</label>
+<!-- pattern="^(http)(s)?(://).+" -->
+<!-- SERIA PARA -->
+<!-- (apenas http e https)-->
+<!--
+UTILIZACAO DE:
+http://regexpal.com/
+E DE:
+https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp#Special_characters_in_regular_expressions
+-->
+                        <input type="url" id="imagemURL" name="imagemURL" size="50" maxlength="255"
+                         onmouseover="label2title(this);">
+                    </p>
+                <fieldset><!-- class="dates"-->
+                    <legend>Datas</legend>
+                    <p class="dados_form_EN">
+                        <label for="dataEN">Data de Lan&ccedil;amento (para zonas em Ingl&ecirc;s):</label>
+<!--setDatePicker(this.id);-->
+                        <input type="date" id="dataEN" name="dataEN" required="required"
+                         onmouseover="label2title(this);">
+                    </p>
+                    <p class="dados_form_PT">
+                        <label for="dataPT">Data de Lan&ccedil;amento (para zonas em Portugu&ecirc;s):</label>
+<!--setDatePicker(this.id);-->
+                        <input type="date" id="dataPT" name="dataPT" required="required"
+                         onmouseover="label2title(this);">
+                    </p>
+                    <p>
+                        <span id="dataOficiallabel"
+                         onclick="setRadioFirstOption('dataOficial');">Data Oficial/Prim&aacute;ria:</span>
+
+                        <input type="radio" name="dataOficial" id="dataOficialEN" value="EN" required="required"
+                         onmouseover="label2title(this,' - ','dataOficiallabel');">
+
+                        <label for="dataOficialEN" id="dataOficialENlabel"
+                         onmouseover="label2title(this,' - ','dataOficiallabel',this.id);">para zona em Ingl&ecirc;s</label>
+
+                        <input type="radio" name="dataOficial" id="dataOficialPT" value="PT"
+                         onmouseover="label2title(this,' - ','dataOficiallabel');">
+
+                        <label for="dataOficialPT" id="dataOficialPTlabel"
+                         onmouseover="label2title(this,' - ','dataOficiallabel',this.id);">para zona em Portugu&ecirc;s</label>
+                    </p>
+                </fieldset>
+                    <p>
+                        <label for="minutos">Dura&ccedil;&atilde;o (em Minutos):</label>
+                        <input type="number" id="minutos" name="minutos" required="required"
+                         onmouseover="label2title(this);">
+                    </p>
+                <fieldset><!-- class="directors"-->
+                    <legend>Realizador(e)(a)(s)</legend>
+                    <p>
+                        <label for="realizador_aux" style="vertical-align:top;float:left;width:15em;">Escreva cada Nome de Realizador(a), e adicione-o &agrave; lista:</label>
+                        <input type="text" id="realizador_aux" name="realizador_aux" size="50" maxlength="255"
+                         onmouseover="label2title(this);">
+                    </p>
+                    <p>
+                        <input type="button" id="btn_realizador_aux" name="btn_realizador_aux" value="Adicionar Nome de Realizador(a) &agrave; Lista"
+                         onclick="moveConteudoParaListaSeAusente(this.form.realizador_aux,this.form.realizador);">
+                    </p>
+                    <p>
+                        <label for="realizador" style="vertical-align:top;float:left;width:15em;">Lista (1 ou  mais pessoas, 1&ordf; &eacute; principal, escolher da Lista = mover para escrita):</label>
+                        <select id="realizador" name="realizador" required="required" multiple="multiple" size="3" style="vertical-align:top;"
+                         onclick="retiraEscolhaDaListaParaEdicao(this,this.form.realizador_aux);"
+                         onmouseover="label2title(this);">
+                        </select>
+                    </p>
+                </fieldset>
+                <fieldset><!-- class="actors"-->
+                    <legend>Act(or)(riz)(es)</legend>
+                    <p>
+                        <label for="actr_aux" style="vertical-align:top;float:left;width:15em;">Escreva cada Actor/Actriz,</label>
+                        <input type="text" id="actr_aux" name="actr_aux" size="50" maxlength="255"
+                         onmouseover="label2title(this);">
+                    </p>
+                    <p>
+                        <label for="char_aux" style="vertical-align:top;float:left;width:15em;">escreva cada Personagem do Actor/Actriz, adicione-o &agrave; lista Temp., e depois adicione tudo &agrave; lista Defin.:</label>
+                        <input type="text" id="char_aux" name="char_aux" size="50" maxlength="255"
+                         onmouseover="label2title(this);">
+                    </p>
+                    <p>
+                        <input type="button" id="btn_chars_aux" name="btn_chars_aux" value="Adicionar Personagem &agrave; Lista Tempor&aacute;ria"
+                         onclick="moveConteudoParaListaSeAusente(this.form.char_aux,this.form.chars_aux);">
+                    </p>
+                    <p>
+                        <input type="button" id="btn_actrchars_aux" name="btn_actrchars_aux" value="Adicionar Act. e Personagen(s) &agrave; Lista Definitiva"
+                         onclick="moveConteudoTextoListaParaListaSeAusente(this.form.actr_aux,this.form.chars_aux,this.form.actrchars,' - ',' / ');">
+                    </p>
+                    <p>
+                        <label for="chars_aux" style="vertical-align:top;float:left;width:15em;">Lista Temp. (1 ou  mais personagens, escolher da Lista = mover para escrita):</label>
+                        <select id="chars_aux" name="chars_aux" multiple="multiple" size="3" style="vertical-align:top;"
+                         onclick="retiraEscolhaDaListaParaEdicao(this,this.form.char_aux);"
+                         onmouseover="label2title(this);">
+                        </select>
+                    </p>
+                    <p>
+                        <label for="actrchars" style="vertical-align:top;float:left;width:15em;">Lista Defin. (1 ou  mais Actor/Actriz(es), com personagen(s), escolher da Lista = mover para escrita):</label>
+                        <select id="actrchars" name="actrchars" required="required" multiple="multiple" size="3" style="vertical-align:top;"
+                         onclick="retiraEscolhaDaListaParaEdicaoTextoLista(this,this.form.actr_aux,this.form.chars_aux,' - ',' / ');"
+                         onmouseover="label2title(this);">
+                        </select>
+                    </p>
+                </fieldset>
+                <fieldset><!-- class="plots"-->
+                    <legend>Sinopses</legend>
+                    <p class="dados_form_EN">
+                        <label for="sinopseEN" style="vertical-align:top;">Sinopse (em Ingl&ecirc;s):</label>
+                        <textarea id="sinopseEN" name="sinopseEN" required="required" cols="50" rows="2"
+                         onmouseover="label2title(this);"></textarea>
+                    </p>
+                    <p class="dados_form_PT">
+                        <label for="sinopsePT" style="vertical-align:top;">Sinopse (em Portugu&ecirc;s):</label>
+                        <textarea id="sinopsePT" name="sinopsePT" required="required" cols="50" rows="2"
+                         onmouseover="label2title(this);"></textarea>
+                    </p>
+                </fieldset>
+                <fieldset><!-- class="categories"-->
+                    <legend>Categorias</legend>
+                    <p class="dados_form_EN">
+                        <label for="cat_auxEN" style="vertical-align:top;float:left;width:15em;">Escreva cada Categoria (em Ingl&ecirc;s), e adicione-a &agrave; lista:</label>
+                        <input type="text" id="cat_auxEN" name="cat_auxEN" size="50" maxlength="255"
+                         onmouseover="label2title(this);">
+                    </p>
+                    <p class="dados_form_EN">
+                        <input type="button" id="btn_cat_auxEN" name="btn_cat_auxEN" value="Adicionar Categoria  (em Ingl&ecirc;s) &agrave; Lista"
+                         onclick="moveConteudoParaListaSeAusente(this.form.cat_auxEN,this.form.catEN);">
+                    </p>
+                    <p class="dados_form_EN">
+                        <label for="catEN" style="vertical-align:top;float:left;width:15em;">Lista (1 ou  mais categs., 1&ordf; &eacute; principal, escolher da Lista = mover para escrita):</label>
+                        <select id="catEN" name="catEN" required="required" multiple="multiple" size="3" style="vertical-align:top;"
+                         onclick="retiraEscolhaDaListaParaEdicao(this,this.form.cat_auxEN);"
+                         onmouseover="label2title(this);">
+                        </select>
+                    </p>
+                    <p class="dados_form_PT">
+                        <label for="cat_auxPT" style="vertical-align:top;float:left;width:15em;">Escreva cada Categoria (em Portugu&ecirc;s), e adicione-a &agrave; lista:</label>
+                        <input type="text" id="cat_auxPT" name="cat_auxPT" size="50" maxlength="255"
+                         onmouseover="label2title(this);">
+                    </p>
+                    <p class="dados_form_PT">
+                        <input type="button" id="btn_cat_auxPT" name="btn_cat_auxPT" value="Adicionar Categoria  (em Portugu&ecirc;s) &agrave; Lista"
+                         onclick="moveConteudoParaListaSeAusente(this.form.cat_auxPT,this.form.catPT);">
+                    </p>
+                    <p class="dados_form_PT">
+                        <label for="catPT" style="vertical-align:top;float:left;width:15em;">Lista (1 ou  mais categs., 1&ordf; &eacute; principal, escolher da Lista = mover para escrita):</label>
+                        <select id="catPT" name="catPT" required="required" multiple="multiple" size="3" style="vertical-align:top;"
+                         onclick="retiraEscolhaDaListaParaEdicao(this,this.form.cat_auxPT);"
+                         onmouseover="label2title(this);">
+                        </select>
+                    </p>
+                </fieldset>
+                <fieldset><!-- class="actions"-->
+                    <legend>Ac&ccedil;&otilde;es</legend>
+<!-- INICIO DA 1a (de 2) AREA DE TEMPLATE -->
+                    <p>
+                        <label for="tmpl">Escolha a Template pr&eacute;-definida a utilizar:</label>
+                        <select id="tmpl" name="tmpl" required="required"
+                         onmouseover="label2title(this);">
+                            <option value=""></option>
+                            <option value="movieTemplate">movieTemplate - Templates/exemplo_base_enunciado.tmpl</option>
+                            <option value="interfacesTemplate">interfacesTemplate - Templates/interfaces.tmpl</option>
+                            <option value="teaserAdTemplate">teaserAdTemplate - Templates/teaser_ad.tmpl</option>
+                        </select>
+                    </p>
+<!-- FINAL DA 1a (de 2) AREA DE TEMPLATE -->
+                    <p>
+                        <input type="submit" name="submeter" id="submeter" value="Submeter Formul&aacute;rio">
+                    </p>
+                    <p>
+                        <input type="reset" name="reiniciar" id="reiniciar" value="Reiniciar Preenchimento">
+                    </p>
+                </fieldset>
+            </fieldset>
+        </form>
+    </article>
+
+<!-- INICIO DA 2a (de 2) AREA DE TEMPLATE -->
+
+<!--script id="movieTemplate" type="html/template" -->
+<!--/script-->
+    <script id="movieTemplate" type="html/template" src="Templates/exemplo_base_enunciado.tmpl"></script>
+    <script id="interfacesTemplate" type="html/template" src="Templates/interfaces.tmpl"></script>
+    <script id="teaserAdTemplate" type="html/template" src="Templates/teaser_ad.tmpl"></script>
+
+<!--
+UTILIZACAO DA SOLUCAO APRESENTADA EM:
+http://jupiterjs.com/news/convert-form-elements-to-javascript-object-literals-with-jquery-formparams-plugin
+E EM:
+https://github.com/douglascrockford/JSON-js
+http://www.json.org/js.html
+-->
+    <script type="text/javascript" src="Scripts/3rd_party/jquery.formparams.js"></script>
+    <script type="text/javascript" src="Scripts/json/json2.js"></script>
+
+    <script type="text/javascript" src="Scripts/work/template.js"></script>
+
+    <h1 id="area_template" style="font-size: medium ; display: inline ;">
+     In&iacute;cio da &Aacute;rea resultante da Submiss&atilde;o do Formul&aacute;rio
+     (Gera&ccedil;&atilde;o de HTML atrav&eacute;s de Templates pr&eacute;-definidas)
+    </h1>
+    (<a href="#area_form">voltar ao in&iacute;cio em cima</a>)
+
+<!-- FINAL DA 2a (de 2) AREA DE TEMPLATE -->
+
+<!--
+ TODO: EXPERT VERSION: form: utilizar listas predefinidas para as categorias dos filmes
+ TODO: MORE EXPERT VERSION: integrar/combinar, com sucesso, Interfaces.html neste ficheiro
+-->
+
+</body>
+</html>

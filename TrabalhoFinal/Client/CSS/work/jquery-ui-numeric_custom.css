@@ -1,0 +1,75 @@
+        /*
+         * jquery-ui-numeric_custom.css (utilizada em FormCriarFilme.html)
+         *
+         * 1) objectivo: esta CSS serve para reduzir o espaco em excesso, em branco,
+         * que o campo number - numeric (number picker) (<input type="number") ocupa
+         * num formulario, numa pagina.
+         *
+         * 1) status: objectivo conseguido em parte:
+         * - o tamanho da fonte menor, mas aceitavel (bem legivel) ;
+         * - no entanto, o campo mantem a mesma altura (mais ou menos o dobro da fonte),
+         *     ou seja, existe ainda espaco em branco abaixo dos algarismos e das setas ;
+         * - estilos comentados, quando descomentados, sao tentativas de reduzir a altura ;
+         */
+
+/*
+ * para ser utilizada com numeric (number picker) disponivel em
+ * http://plugins.jquery.com/plugin-tags/number-picker
+ * https://github.com/flamewave/jquery-ui-numeric
+ */
+
+//        .ui-widget
+//        {
+//            // font-family: Verdana,Arial,sans-serif;
+//            font-size: 1em; // 1.1em;
+//        }
+
+//        .ui-widget-content
+//        {
+//            background-position: 0% 0%; // 50% 50%;
+//            background-clip: content-box; // border-box;
+//            background-origin: content-box; // padding-box;
+//            background-size: cover; // contain; // auto auto;
+//        }
+
+        .ui-numeric-buttons .ui-button
+        {
+            // margin: 0px;
+            width: 1em; // 1.55em;
+            height: 1em; // 1.55em;
+        }
+
+//        .ui-button-icon-only
+//        {
+//            width: 1em; // 2.2em;
+//        }
+
+//        button.ui-button-icon-only
+//        {
+//            width: 1em; // 2.4em;
+//        }
+
+//        .ui-button-icons-only
+//        {
+//            width: 1em; // 3.4em;
+//        }
+
+//        button.ui-button-icons-only
+//        {
+//            width: 1em; // 3.7em;
+//        }
+
+//        .ui-button .ui-button-text
+//        {
+//            display: block;
+//            line-height: 1; // 1.4;
+//        }
+
+//        .ui-button-text-only .ui-button-text
+//        {
+//            padding: 0em 0em; // .4em 1em;
+//        }
+
+/*
+ * TODO: EXPERT VERSION: reduzir melhor o espaco em branco em excesso (abaixo dos algarismos e das setas) do campo number - numeric (number picker)
+ */

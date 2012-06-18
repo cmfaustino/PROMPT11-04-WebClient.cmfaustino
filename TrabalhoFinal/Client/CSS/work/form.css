@@ -1,0 +1,54 @@
+        /*
+         * form.css (utilizada em FormCriarFilme.html)
+         *
+         * muda a cor de fundo, para cinzento claro, do item/campo que tem foco (o campo
+         * que esta' a ser editado, ou o botao que foi clicado ou que tem focus),
+         * reduz o espaco produzido pelos paragrafos no formulario .
+         *
+         * 1) objectivo: esta CSS serve para fazer com que os campos <input type="date"
+         * tenham a aparencia com date picker, sem utilizacao de scripting, mas apenas css.
+         *
+         * 1) status: Objectivo conseguido parcialmente:
+         * - conseguido com css ***e scripting***, atraves de jquery .
+         *
+         * 2) objectivo: esta CSS serve para fazer com que o titulo atribuido a varios
+         * campos do formulario (valor atribuido ao atributo title, atraves de script)
+         * fosse, automaticamente, atribuido ao placeholder do respectivo campo.
+         *
+         * 2) status: Objectivo nao conseguido:
+         * - o firefox nao reconhece o codigo comentado, quando este e' descomentado .
+         */
+
+/*
+ * solucao (simples, sem scripting) que nao resulta (para date picker) apresentada em:
+ * https://bugzilla.mozilla.org/show_bug.cgi?id=446510
+ */
+//        input[type="date"] {
+//            -moz-binding: url('chrome://global/content/bindings/datetimepicker.xml#datepicker-grid');
+//        }
+
+/*
+ * tentativa baseada em:
+ * http://davidwalsh.name/html5-placeholder-css
+ * https://developer.mozilla.org/en/CSS/:-moz-placeholder
+ */
+//        input[type="text"]:-moz-placeholder { content : attr( "title" ) ; }
+//        input[type="text"]::-webkit-input-placeholder { content : attr( "title" ) ; }
+//        input[type="text"]:-ms-placeholder { content : attr( "title" ) ; }
+//        input[type="url"]:-moz-placeholder { content : attr( "title" ) ; }
+//        input[type="url"]::-webkit-input-placeholder { content : attr( "title" ) ; }
+//        input[type="url"]:-ms-placeholder { content : attr( "title" ) ; }
+//        textarea:-moz-placeholder { content : attr( "title" ) ; }
+//        textarea::-webkit-input-placeholder { content : attr( "title" ) ; }
+//        textarea:-ms-placeholder { content : attr( "title" ) ; }
+
+/* mudanca de cor de fundo no campo em foco (que esta' a ser editado) */
+        article form input:focus
+         , article form textarea:focus { background-color: lightgrey ; }
+
+/* reducao do espaco dos paragrafos */
+        article form p { padding: 0cm 0cm 0cm 0cm ; margin: 0cm 0cm 0cm 0cm ; }
+
+/*
+ * TODO: EXPERT VERSION: fazer com que atributo placeholder seja igual ao atributo title
+ */

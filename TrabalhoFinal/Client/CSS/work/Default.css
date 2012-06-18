@@ -1,0 +1,24 @@
+        /*
+         * Default.css (Default_PT em Interfaces.html)
+         *
+         * limita-se a esconder os itens em Ingles abaixo da classe movie ,
+         *
+         * coloca - imediatamente antes do primeiro personagem de cada actor/actriz
+         * e coloca / antes dos restantes personagens (se existirem) de cada actor
+         * (isto e', - separa o actor/actriz dos personagens, e / separa as personagens) ,
+         *
+         * nao tendo mais estilos .
+         */
+
+-* { border-style: solid ; border-width: 1px ; border-color: cyan ; } /* apenas para debug */
+
+        #btnDefault { font-weight: bolder ; background-color: darkgrey ; }
+
+        .movie *[lang="en"] { display: none ; }
+
+/* actores e personagens */
+        /* antes de 1st personagen (cada 2nd span, e que este tenha class .charmovie) */
+        span.charmovie:nth-of-type(2):before { content: " - " ; }
+
+        /* antes de restantes personagens */
+        span.charmovie:not(:nth-of-type(2)):before { content: " / " ; }

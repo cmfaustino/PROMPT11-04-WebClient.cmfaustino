@@ -1,0 +1,270 @@
+(este relatorio foi escrito sem acentuacao,
+devido ao mau tratamento desta ultima pelo site github)
+
+Dentro do prazo para este trabalho, o que foi feito do trabalho foi apenas:
+- Parte 1 - Interfaces;
+- Parte 1 - Formulario.
+
+Apos o prazo para este trabalho, foi tambem feito:
+- Parte 1 - Template;
+- Parte 1 - LINQ.
+
+Nao foi feito:
+- Parte 2 (desenhos).
+
+=================================================
+1.1.1.1) parte 1 - HTML e CSS - interface - HTML5
+=================================================
+
+Na definicao da interface para filme, em HTML5, optou-se pelo seguinte raciocinio
+relativamente 'a semantica:
+
+a) a utilizacao de dados em Portugues e Ingles (lang="pt" e lang="en") foi inspirada
+pelo site imdb.com , que mostra o titulo do filme em Ingles e em Portugues (deteccao
+do idioma preferido do user agent/browser, penso eu, e nao pela localizacao do IP),
+embora tenha sido sugerido o cenario de que, a haverem traducoes no site, tal faria
+mais sentido com a opcao de "ver site" num determinado idioma (escolha de idioma);
+
+b) tendo em conta o ponto anterior, temos itens (ou nomes de itens) que,
+dentro do seu conteudo, podem ter varias hipoteses, e assim sendo, chegou-se 'a
+utilizacao de <span para diferenciar as hipoteses de idiomas, dentro da maior parte
+dos itens.
+
+Assim, um (nome de) item tem a sua semantica, e tera' um conteudo, sendo que este ultimo
+incluira' varias hipoteses (conforme o numero de idiomas - neste caso, 2, pt e en).
+
+Em relacao aos microdados (ver ponto seguinte), a questao de se utilizar <time para
+uma duracao (neste caso, de cada filme) parece ser algo de estranho, pois alguns standards
+nao aceitam, enquanto outros indicam que pode ser utilizado para duracoes.
+O site
+http://www.w3resource.com/schema.org/Movie.php
+utiliza outra abordagem, sem polemicas,
+e foi esta abordagem a que foi adoptada no trabalho para a duracao de um filme.
+
+Tambem o schema utilizado para microdados http://schema.org/Movie
+nao esta' bem explicado, pois nao se entende bem se pode haver mais do que um genre
+e mais do que um director. Seja como for, optou-se, no trabalho, por apenas incluir um
+de cada para efeitos de microdados, ou seja, em cada filme, na definicao de microdados,
+so' existe um genre e so' existe um director - em termos de implementacao de um site,
+tal poderia ser conseguido, escolhendo-se o primeiro genre e o primeiro director que
+o utilizador introduzisse numa lista de categorias e numa lista de realizadores.
+
+======================================================================================
+1.1.1.2) parte 1 - HTML e CSS - interface - HTML5 - analise: Microdata vs microformats
+======================================================================================
+
+Esta analise foi feita, ao querer utilizar-se microdados na definicao da interface.
+
+Microdata:
+
+a) pelo facto de se utilizarem os atributos itemscope , itemtype , itemprop
+definidos apenas para este efeito, existe uma separacao entre a logica e as CSS,
+por exemplo, pelo que, podem existir formatos diferentes;
+
+b) como o atributo itemtype tem o valor de um URL, isso significa que existe
+especificacao externa unica, sem sobreposicao com outras especificacoes:
+http://schema.org/
+http://www.data-vocabulary.org/
+
+c) Google, Bing e Yahoo promovem esta iniciativa, segundo schema.org;
+
+d) havendo um esquema/especificacao definido/a, e' facil de utilizar;
+
+Microformats:
+
+a) cada especificacao tem um nome que e' universal (hCard existe independente de URL);
+
+b) ja e' suportada pelos browsers, segundo microformats.org;
+
+c) o Google apoia esta iniciativa, atraves da busca de receitas de culinaria;
+
+Assim sendo:
+
+a) Microdata tem a desvantagem de poderem existir varios formatos
+para o mesmo item em questao, isto e', podem existir varias especificacoes
+(URL's diferentes) para um filme, ou para uma pessoa, por exemplo:
+http://schema.org/Person
+http://www.data-vocabulary.org/Person/
+De data-vocabulary:
+http://www.google.com/support/webmasters/bin/answer.py?hl=en&answer=146646
+http://www.google.com/support/webmasters/bin/answer.py?answer=176035
+Pode ser visto que a propriedade "nickname" existe na Person do site data-vocabulary,
+mas nao existe na Person do site schema;
+
+b) Microdata, como visto nos seguintes links, parece entrar em incompatibilidade com
+os standards, no que toca 'a duracao de um filme, se for valido que a duracao de um
+filme pode ser definida com a utilizacao de HTML5 <time, pois a letra "P" nao parece
+ser aceite no <time de HTML5 (mesmo nao sendo valido para duracoes, o site schema.org
+na sua seccao Getting Started utiliza o <time para duracao de filme, o que e' estranho):
+http://schema.org/docs/gs.html#advanced_dates
+http://schema.org/Movie
+http://en.wikipedia.org/wiki/ISO_8601#Durations
+http://en.wikipedia.org/wiki/ISO_8601_usage - "(...)It explicitly excludes durations(...)"
+http://tools.ietf.org/html/rfc3339#appendix-A - e' indicado ABNF para duration
+http://developers.whatwg.org/text-level-semantics.html#the-time-element
+http://developers.whatwg.org/common-microsyntaxes.html#valid-time-string
+O site
+http://www.w3resource.com/schema.org/Movie.php
+utiliza outra abordagem, sem polemicas,
+e foi esta abordagem a que foi adoptada no trabalho para a duracao de um filme.
+
+c) Microformats tem as desvantagens de nao se perceber de forma clara qual o item
+que esta' a ser definido, pois um nome pode definir algo (seja pessoa ou filme),
+para alem de utilizar o atributo class (que e' utilizado em CSS), pelo que,
+mistura a logica (definicao/semantica) com CSS, obrigando estas a utilizarem nomes
+definidos na especificacao;
+
+d) segundo microformats.org, Microdata pode ser utilizada para definir Microformats;
+
+Conclusao: Apesar de estar numa fase mais inicial, pois ainda nao e' suportada pelos
+browsers (segundo microformats.org), e atendendo ao que parece ser incompatibilidade
+da duracao de um filme com HTML5, Microdata e' mais facil de utilizar, e tem tambem
+a vantagem de poder ser utilizada para Microformats.
+
+Foi devido a esta analise que se optou por utilizar Microdata no trabalho.
+
+URLS consultados:
+
+http://en.wikipedia.org/wiki/Microdata_%28HTML%29
+http://en.wikipedia.org/wiki/Schema.org
+http://schema.org/
+http://en.wikipedia.org/wiki/Microformat
+http://microformats.org/
+
+http://microformats.org/wiki/microdata (que, no final da pagina, faz referencia a XMDP)
+http://gmpg.org/xmdp/description
+http://developers.whatwg.org/microdata.html#microdata
+http://developers.whatwg.org/microdata.html#md-vcard
+http://developers.whatwg.org/microdata.html#examples-1
+
+===============================================
+1.1.1.3) parte 1 - HTML e CSS - interface - CSS
+===============================================
+
+Na definicao de CSS para a interface, chegou-se 'a conclusao de que, por vezes,
+para essa mesma definicao ser mais facil, o melhor seria alterar a estrutura definida em
+HTML5, mas tal pode pressupor alterar a semantica do mesmo (devido 'a pouca experiencia na
+utilizacao de HTML para definir semantica).
+Como tal, foi demorada e dificil (devido 'a estetica desejada) a definicao de CSS.
+
+Para cross-browser CSS, utilizou-se um script disponibilizado em
+http://www.tvidesign.co.uk/blog/CSS-Browser-detection-using-jQuery-instead-of-hacks.aspx
+em conjunto com jQuery, de modo a detectar o browser utilizado e colocar uma class
+correspondente no body do documento, de modo a que certos valores de propriedades CSS
+possam ser customizados conforme o browser.
+Isto nao e' a mesma coisa que utilizar a sintaxe <propriedade> para alguns browsers
+e <-moz-propriedade> para Mozilla e Firefox e <-webkit-propriedade> para Chrome,
+pois o que se prentende e' a mesma propriedade com valores diferentes conforme o browser.
+
+Tambem se chegou 'a conclusao de que e' preferivel utilizar class'es para os estilos,
+de modo a tornar a css generica, e nao dependente do html definido.
+Assim, por exemplo, na Matrix.css, existem alguns estilos que, no rascunho inicial,
+estavam aplicados a article, mas que sofreram a simples alteracao de se substituir
+o selector article pelo selector .movie , e assim, a css fica mais generica (mais
+independente do html utilizado). Desta forma, apenas as tags dl e dd ficaram com estilos,
+e algumas span filhas, para alem da tag body que existe sempre num documento html valido.
+
+===========================================================
+1.1.2) parte 1 - HTML e CSS - formulario de adicao de filme
+===========================================================
+
+Se bem que o objectivo deste formulario era a utilizacao de html e css, tambem se utilizou
+fortemente scripting (jQuery, e tambem JavaScript classico):
+
+1) para certos efeitos, como nos campos de:
+- Datas (de Lancamento) do filme (com date picker);
+- Duracao em minutos (com number picker).
+
+2) para edicao nos campos relacionados com multiplos valores, por meio de campo de texto
+auxiliar (e, tambem, de campo <select auxiliar), como na seccoes de campos de:
+- Realizador(e)(a)(s);
+- Act(or)(riz)(es);
+- Categorias.
+
+Nestas 3 seccoes, o objectivo e' que o utilizador introduza os dados dos campos auxiliares,
+e que, depois, os copie para o campo <select principal.
+
+Tanto as CSS como os Scripts foram subdivididos em:
+- jquery - estritamente copiados do site jquery.com atraves da opcao download;
+- 3rd_party - outros scripts copiados de outros sites;
+- work - scripts adaptados de outros sites, ou criados de raiz para este trabalho.
+
+A compatibilidade entre browsers nao esta' garantida, pois este trabalho apenas foi
+testado em firefox 7.0.1 e em chrome.
+No entanto, encontraram-se algumas sugestoes de compatibilidade com IE mais antigo, embora
+nao sejam utilizadas neste trabalho, nos seguintes enderecos:
+http://www.useragentman.com/blog/2010/03/09/cross-browser-css-transforms-even-in-ie/
+http://code.google.com/p/ie7-js/
+http://code.google.com/p/universal-ie6-css/
+http://css3pie.com/
+http://fetchak.com/ie-css3/
+http://scarfoo.com/archives/16
+http://www.onderhond.com/tools/ie6fixer/
+
+Acrescentou-se um campo <select , junto aos botoes das Accoes , com lista de Templates,
+apenas para se integrar com a alinea seguinte do trabalho (Templates HTML pre-definidas),
+e, por isso, os ficheiros das templates e a accao de submeter o formulario estao definidas
+em ficheiros externos ao formulario, e estao, tambem, indicados na parte final do ficheiro
+html do formulario.
+
+=============================================================
+1.2.1) parte 1 - JavaScript e jQuery - templates HTML Cliente
+=============================================================
+
+Utilizou-se a funcionalidade da notacao JSON, para transformar objectos em strings, para
+ser mais facil o debug, na implementacao desta parte do enunciado.
+Para tal, poder-se-ia confiar no facto do browser utilizado ja' ter suporte nativo para
+JSON (por meio de um objecto global JSON), ou poder-se-ia utilizar o ficheiro json2.js
+disponibilizado em
+https://github.com/douglascrockford/JSON-js
+para ser possivel esta funcionalidade em qualquer browser que suporte JavaScript e jQuery.
+
+Assim, optou-se por esta ultima hipotese, para este trabalho ser mais generico/abrangente
+em relacao aos browsers alvo (isto e', nos quais e' possivel a sua execucao).
+
+...
+
+As 2 funcionalidades enunciadas:
+- aceitar como 2º parâmetro um array de objectos ;
+- receber apenas um parâmetro ;
+estao contempladas na funcao template , por meio de if's.
+
+A funcionalidade adicional:
+- Marcas com propriedades de propriedades, ou seja,
+ poder usar a seguinte sintaxe: $(student.name) ;
+nao foi contemplada.
+
+Estando este item do enunciado concluido, seria possivel/desejavel combinar os 3 itens
+(Interfaces, Formulario, e Templates) num unico ficheiro, com a possibilidade de utilizacao
+do mecanismo utilizado em Interfaces (alteracao de CSS's utilizadas para ver lista de
+filmes), mas tal combinacao so' foi possivel, ate' agora, com 2 destes 3 itens, isto e',
+foi possivel combinar Formulario+Templates, e assim, ver o resultado da geracao de html
+baseado em templates pre-definidas, de acordo com os dados "submetidos" no formulario.
+Um dos motivos e' a utilizacao de css de terceiros (por exemplo, em relacao ao numeric -
+- number picker), o que faz com que esta combinacao seja mais dificil.
+
+=========================================================
+1.2.2) parte 1 - JavaScript e jQuery - LINQ em JavaScript
+=========================================================
+
+...
+
+Os 2 aspectos enunciados:
+- Todas as funções de callback são executadas de forma a que o this seja cada um
+ dos elementos da colecção actual ;
+- Em caso de erro, a API deve gerar um evento, através de callback registados globalmente
+ em linq.error(errorHandlerFunction) ;
+foram contemplados em todas as funcoes e propriedades-funcoes dos objectos linq e linqset.
+
+O dasafio adicional:
+- versões alternativas (overloading) destes métodos que recebem strings com os nomes das
+ propriedades. Por exemplo, .select("number", "name") ;
+e tambem .order("number", "name") ;
+nao foi contemplada.
+
+===============================================================================
+2) parte 2 - desenho e publicação de desenhos (N mais recentes, todos, procura)
+===============================================================================
+
+Tendo em conta a demora verificada em implementar o trabalho da parte 1 do enunciado,
+em relacao aos itens do enunciado desta parte 2, nada nao foi implementado.

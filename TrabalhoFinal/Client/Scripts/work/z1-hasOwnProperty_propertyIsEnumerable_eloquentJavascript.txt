@@ -1,0 +1,57 @@
+Object.prototype.properties = function() {
+  var result = [];
+  for (var property in this) {
+    if (this.hasOwnProperty(property))
+      result.push(property);
+  }
+  return result;
+};
+
+//
+
+function forEachIn(object, action) {
+  for (var property in object) {
+    if (object.hasOwnProperty(property))
+      action(property, object[property]);
+  }
+}
+
+var chimera = {head: "lion", body: "goat", tail: "snake"};
+forEachIn(chimera, function(name, value) {
+  print("The ", name, " of a ", value, ".");
+});
+
+//
+
+function forEachIn(object, action) {
+  for (var property in object) {
+    if (Object.prototype.hasOwnProperty.call(object, property))
+      action(property, object[property]);
+  }
+}
+
+var test = {name: "Mordecai", hasOwnProperty: "Uh-oh"};
+forEachIn(test, function(name, value) {
+  print("Property ", name, " = ", value);
+});
+
+//
+
+var object = {foo: "bar"};
+show(Object.prototype.hasOwnProperty.call(object, "foo") &&
+     Object.prototype.propertyIsEnumerable.call(object, "foo"));
+
+--//-- resumo agregador exemplar --//--
+
+function isValidPropertyOfObject( property, object ) {
+    return ( Object.prototype.hasOwnProperty.call( object , property ) &&
+             Object.prototype.propertyIsEnumerable.call( object , property )
+    ) ;
+}
+
+function forEachIn( object, action ) {
+  for ( var property in object ) {
+    if ( isValidPropertyOfObject( property, object ) )
+      action( property , object[ property ] );
+  }
+}

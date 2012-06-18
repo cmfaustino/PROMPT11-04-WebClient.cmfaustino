@@ -1,0 +1,472 @@
+        /*
+         * MadMen.css (MadMen_EN em Interfaces.html)
+         *
+         * esconde os itens em Portugues abaixo da classe movie ,
+         *
+         * coloca background a branco, letras e fundos em varias fontes e cores ,
+         * coloca as imagens em inclinacao (skew) / ,
+         * coloca os dados em inclinacao (skew), uns em \ e outros em / ,
+         * havendo transition na imagem e na duracao ,
+         * e havendo :hover na imagem, na duracao e na sinopse
+         * (esta ultima - o dd:hover dela - afecta o estilo das categorias) ,
+         *
+         * coloca - imediatamente antes do primeiro personagem de cada actor/actriz
+         * e coloca / antes dos restantes personagens (se existirem) de cada actor
+         * (isto e', - separa o actor/actriz dos personagens, e / separa as personagens) .
+         */
+
+-* { border-style: solid ; border-width: 1px ; border-color: cyan ; } /* apenas para debug */
+
+        #btnMadMen { font-weight: bolder ; background-color: darkgrey ; }
+
+        .movie *[lang="pt"] { display: none ; }
+
+        .imgdescmovie { display: none ; }
+        .datedescmovie { display: none ; }
+        .durdescmovie { display: none ; }
+        .plotdescmovie { display: none ; }
+        .catdescmovie { display: none ; }
+
+        body { background-color: white ; }
+
+        #topo:first-of-type:before {
+            content: "ATENCAO: Esta CSS tem propriedade 'transition' na imagem e na duracao, e tem efeitos ':hover' nestes 2 itens referidos e tambem na sinopse (esta ultima - o dd:hover dela - afecta o estilo das categorias)." ;
+            display: block ;
+            font-size: 2em ;
+        }
+
+/* font por default , que sera' substituida por outras */
+        .movie * { font-family: "Lucida Console", Monaco, monospace ; }
+
+/*
+ * copiado de: http://www.w3schools.com/cssref/css_websafe_fonts.asp
+ *
+ * Georgia, serif
+ *
+ * "Times New Roman", Times, serif
+ *
+ * Arial Black, Gadget, sans-serif
+ *
+ * Impact, Charcoal, sans-serif
+ *
+ * Verdana, Geneva, sans-serif
+ */
+
+        .movie {
+            height: 327px ; /* (317+10)px */
+            display: block ;
+            float: left ;
+        }
+
+/* titulo */
+        .titlemovie {
+            transform: skew(0deg , 20deg) ;
+            -moz-transform: skew(0deg , 20deg) ;
+            -webkit-transform: skew(0deg , 20deg) ;
+            -ms-transform: skew(0deg , 20deg) ;
+            -ie-transform: skew(0deg , 20deg) ;
+            -o-transform: skew(0deg , 20deg) ;
+/* http://www.useragentman.com/IETransformsTranslator/ */
+/* IE8+ - must be on one line, unfortunately */
+-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=0, M21=0.3639702342662022, M22=1, SizingMethod='auto expand')";
+/* IE6 and 7 */
+filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=1,
+            M12=0,
+            M21=0.3639702342662022,
+            M22=1,
+            SizingMethod='auto expand');
+
+            box-shadow: 6px -6px 10px 4px black ;
+            -moz-box-shadow: 6px -6px 10px 4px black ;
+            -webkit-box-shadow: 6px -6px 10px 4px black ;
+
+            display: inline ;
+            position: relative ; /* inherit */ /* static e' default */
+            left: 231px ; /* (261-30)px */
+            top: 28px ;
+
+            border-radius: 5px ;
+            color: blue ;
+        }
+
+/* lista */
+/* definicao */
+
+/* imagem */
+        .imgmovie {
+            float: left ;
+
+            transform: skew(0deg , -20deg) ;
+            -moz-transform: skew(0deg , -20deg) ;
+            -webkit-transform: skew(0deg , -20deg) ;
+            -ms-transform: skew(0deg , -20deg) ;
+            -ie-transform: skew(0deg , -20deg) ;
+            -o-transform: skew(0deg , -20deg) ;
+/* http://www.useragentman.com/IETransformsTranslator/ */
+/* IE8+ - must be on one line, unfortunately */
+-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=0, M21=-0.3639702342662026, M22=1, SizingMethod='auto expand')";
+/* IE6 and 7 */
+filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=1,
+            M12=0,
+            M21=-0.3639702342662026,
+            M22=1,
+            SizingMethod='auto expand');
+
+            box-shadow: -6px -6px 10px 4px black ;
+            -moz-box-shadow: -6px -6px 10px 4px black ;
+            -webkit-box-shadow: -6px -6px 10px 4px black ;
+
+            position: relative ;
+            left: -30px ;
+        }
+        .imgmovie:hover {
+            transform: skew(0deg , 0deg) ;
+            -moz-transform: skew(0deg , 0deg) ;
+            -webkit-transform: skew(0deg , 0deg) ;
+            -ms-transform: skew(0deg , 0deg) ;
+            -ie-transform: skew(0deg , 0deg) ;
+            -o-transform: skew(0deg , 0deg) ;
+/* http://www.useragentman.com/IETransformsTranslator/ */
+/* IE8+ - must be on one line, unfortunately */
+-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=0, M21=0, M22=1, SizingMethod='auto expand')";
+/* IE6 and 7 */
+filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=1,
+            M12=0,
+            M21=0,
+            M22=1,
+            SizingMethod='auto expand');
+
+            transition: all 1s linear ;
+            -moz-transition: all 1s linear ;
+            -webkit-transition: all 1s linear ;
+            -o-transition: all 1s linear ;
+        }
+
+/* data/ano */
+        .datemovie {
+            font-family: "Times New Roman", Times, serif ;
+
+            display: inline ;
+            float: left ;
+
+            font-size: 1.5em ;
+
+            transform: skew(0deg , -20deg) ;
+            -moz-transform: skew(0deg , -20deg) ;
+            -webkit-transform: skew(0deg , -20deg) ;
+            -ms-transform: skew(0deg , -20deg) ;
+            -ie-transform: skew(0deg , -20deg) ;
+            -o-transform: skew(0deg , -20deg) ;
+/* http://www.useragentman.com/IETransformsTranslator/ */
+/* IE8+ - must be on one line, unfortunately */
+-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=0, M21=-0.3639702342662026, M22=1, SizingMethod='auto expand')";
+/* IE6 and 7 */
+filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=1,
+            M12=0,
+            M21=-0.3639702342662026,
+            M22=1,
+            SizingMethod='auto expand');
+
+            box-shadow: -6px -6px 10px 4px yellow ;
+            -moz-box-shadow: -6px -6px 10px 4px yellow ;
+            -webkit-box-shadow: -6px -6px 10px 4px yellow ;
+
+            border-radius: 10px ;
+            background-color: yellow ;
+            color: lightgreen ;
+            /* border: 2px solid yellow ; */
+
+            position: relative ;
+            left: -60px ; /* (-10-50)px */
+            top: 40px ;
+        }
+
+/* duracao */
+        .dddurmovie /*, .durmovie , .durunitmovie*/ {
+            color: lightblue ;
+
+            float: none ;
+
+            transform: rotate(60deg) skewY(-45deg) scaleY(1.5) ;
+            -moz-transform: rotate(60deg) skewY(-45deg) scaleY(1.5) ;
+            -webkit-transform: rotate(60deg) skewY(-45deg) scaleY(1.5) ;
+            -ms-transform: rotate(60deg) skew(0deg, -45deg) scale(1, 1.5) ; /* skewY(-45deg) scaleY(1.5) */
+            -ie-transform: rotate(60deg) skew(0deg, -45deg) scale(1, 1.5) ; /* skewY(-45deg) scaleY(1.5) */
+            -o-transform: rotate(60deg) skewY(-45deg) scaleY(1.5) ;
+/* http://www.useragentman.com/IETransformsTranslator/ */
+/* IE8+ - must be on one line, unfortunately */
+-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1.3660254037844366, M12=-1.299038105676658, M21=0.36602540378443965, M22=0.7500000000000002, SizingMethod='auto expand')";
+/* IE6 and 7 */
+filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=1.3660254037844366,
+            M12=-1.299038105676658,
+            M21=0.36602540378443965,
+            M22=0.7500000000000002,
+            SizingMethod='auto expand');
+
+            box-shadow: 6px -6px 10px 4px lightblue ;
+            -moz-box-shadow: 6px -6px 10px 4px lightblue ;
+            -webkit-box-shadow: 6px -6px 10px 4px lightblue ;
+
+            display: inline ;
+            position: relative ; /* inherit */ /* static e' default */
+            top: -10px ;
+            left: 20px ;
+        }
+        .dddurmovie:hover /*, .durmovie , .durunitmovie*/ {
+            transform: skew(0deg , 20deg) ;
+            -moz-transform: skew(0deg , 20deg) ;
+            -webkit-transform: skew(0deg , 20deg) ;
+            -ms-transform: skew(0deg , 20deg) ;
+            -ie-transform: skew(0deg , 20deg) ;
+            -o-transform: skew(0deg , 20deg) ;
+/* http://www.useragentman.com/IETransformsTranslator/ */
+/* IE8+ - must be on one line, unfortunately */
+-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=0, M21=0.3639702342662022, M22=1, SizingMethod='auto expand')";
+/* IE6 and 7 */
+filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=1,
+            M12=0,
+            M21=0.3639702342662022,
+            M22=1,
+            SizingMethod='auto expand');
+
+            transition: all 1s linear ;
+            -moz-transition: all 1s linear ;
+            -webkit-transition: all 1s linear ;
+            -o-transition: all 1s linear ;
+        }
+
+/* realizador */
+        .dirdescmovie {
+            color: orange ;
+
+            display: inline ;
+            float: none ;
+
+            transform: rotate(60deg) skewY(-45deg) ;
+            -moz-transform: rotate(60deg) skewY(-45deg) ;
+            -webkit-transform: rotate(60deg) skewY(-45deg) ;
+            -ms-transform: rotate(60deg) skew(0deg, -45deg) ; /* skewY(-45deg) */
+            -ie-transform: rotate(60deg) skew(0deg, -45deg) ; /* skewY(-45deg) */
+            -o-transform: rotate(60deg) skewY(-45deg) ;
+/* http://www.useragentman.com/IETransformsTranslator/ */
+/* IE8+ - must be on one line, unfortunately */
+-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1.3660254037844366, M12=-0.8660254037844386, M21=0.36602540378443965, M22=0.5000000000000001, SizingMethod='auto expand')";
+/* IE6 and 7 */
+filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=1.3660254037844366,
+            M12=-0.8660254037844386,
+            M21=0.36602540378443965,
+            M22=0.5000000000000001,
+            SizingMethod='auto expand');
+
+            box-shadow: 6px -6px 10px 4px salmon ;
+            -moz-box-shadow: 6px -6px 10px 4px salmon ;
+            -webkit-box-shadow: 6px -6px 10px 4px salmon ;
+
+            background-color: royalblue ;
+
+            position: relative ;
+            left: -150px ;
+            top: 60px ;
+        }
+        .dirmovie {
+            color: magenta ;
+
+            display: inline ;
+            float: none ;
+
+            transform: rotate(60deg) skewY(-45deg) scaleY(1.15) ;
+            -moz-transform: rotate(60deg) skewY(-45deg) scaleY(1.15) ;
+            -webkit-transform: rotate(60deg) skewY(-45deg) scaleY(1.15) ;
+            -ms-transform: rotate(60deg) skew(0deg, -45deg) scaleY(1.15) ; /* skewY(-45deg) */
+            -ie-transform: rotate(60deg) skew(0deg, -45deg) scaleY(1.15) ; /* skewY(-45deg) */
+            -o-transform: rotate(60deg) skewY(-45deg) scaleY(1.15) ;
+/* http://www.useragentman.com/IETransformsTranslator/ */
+/* IE8+ - must be on one line, unfortunately */
+-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1.3660254037844366, M12=-0.9959292143521043, M21=0.36602540378443965, M22=0.5750000000000001, SizingMethod='auto expand')";
+/* IE6 and 7 */
+filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=1.3660254037844366,
+            M12=-0.9959292143521043,
+            M21=0.36602540378443965,
+            M22=0.5750000000000001,
+            SizingMethod='auto expand');
+
+            box-shadow: 6px -6px 10px 4px purple ;
+            -moz-box-shadow: 6px -6px 10px 4px purple ;
+            -webkit-box-shadow: 6px -6px 10px 4px purple ;
+
+            background-color: teal ;
+
+            position: relative ;
+            left: 200px ;
+            top: 100px ;
+        }
+
+/* actores e personagens */
+        /* antes de 1st personagen (cada 2nd span, e que este tenha class .charmovie) */
+        span.charmovie:nth-of-type(2):before { content: " - " ; }
+
+        /* antes de restantes personagens */
+        span.charmovie:not(:nth-of-type(2)):before { content: " / " ; }
+
+        .actgrpdescmovie {
+            color: orange ;
+
+            display: inline ;
+            float: none ;
+
+            transform: rotate(-60deg) skewY(45deg) ;
+            -moz-transform: rotate(-60deg) skewY(45deg) ;
+            -webkit-transform: rotate(-60deg) skewY(45deg) ;
+            -ms-transform: rotate(-60deg) skewY(45deg) ; /* skewY(45deg) */
+            -ie-transform: rotate(-60deg) skewY(45deg) ; /* skewY(45deg) */
+            -o-transform: rotate(-60deg) skewY(45deg) ;
+/* http://www.useragentman.com/IETransformsTranslator/ */
+/* IE8+ - must be on one line, unfortunately */
+-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1.3660254037844388, M12=0.8660254037844388, M21=-0.3660254037844389, M22=0.4999999999999997, SizingMethod='auto expand')";
+/* IE6 and 7 */
+filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=1.3660254037844388,
+            M12=0.8660254037844388,
+            M21=-0.3660254037844389,
+            M22=0.4999999999999997,
+            SizingMethod='auto expand');
+
+            box-shadow: -6px -6px 10px 4px orange ;
+            -moz-box-shadow: -6px -6px 10px 4px orange ;
+            -webkit-box-shadow: -6px -6px 10px 4px orange ;
+
+            background-color: teal ;
+
+            position: relative ;
+            left: -200px ;
+            top: 30px ;
+        }
+        .actmovie {
+            float: left ;
+
+            font-size: 0.75em ;
+            font-weight: bold ;
+
+            transform: skew(0deg , -20deg) scale(0.75 , 0.75) ;
+            -moz-transform: skew(0deg , -20deg) scale(0.75 , 0.75) ;
+            -webkit-transform: skew(0deg , -20deg) scale(0.75 , 0.75) ;
+            -ms-transform: skew(0deg , -20deg) scale(0.75 , 0.75) ;
+            -ie-transform: skew(0deg , -20deg) scale(0.75 , 0.75) ;
+            -o-transform: skew(0deg , -20deg) scale(0.75 , 0.75) ;
+/* http://www.useragentman.com/IETransformsTranslator/ */
+/* IE8+ - must be on one line, unfortunately */
+-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.75, M12=0, M21=-0.272977675699652, M22=0.75, SizingMethod='auto expand')";
+/* IE6 and 7 */
+filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=0.75,
+            M12=0,
+            M21=-0.272977675699652,
+            M22=0.75,
+            SizingMethod='auto expand');
+
+            box-shadow: -6px -6px 10px 2px gold ;
+            -moz-box-shadow: -6px -6px 10px 2px gold ;
+            -webkit-box-shadow: -6px -6px 10px 2px gold ;
+
+            background-color: white ;
+            color: gold ;
+
+            position: relative ;
+            left: -200px ;
+            top: 40px ;
+        }
+        .charmovie {
+            float: left ;
+
+            font-size: 0.75em ;
+
+            box-shadow: 6px -6px 10px 2px sienna ;
+            -moz-box-shadow: 6px -6px 10px 2px sienna ;
+            -webkit-box-shadow: 6px -6px 10px 2px sienna ;
+
+            background-color: white ;
+            color: gold ;
+
+            position: relative ;
+            left: -190px ;
+            top: 25px ;
+
+            z-index: 1 ;
+        }
+        .charmovie:last-of-type {
+            float: none ;
+        }
+
+/* sinopse */
+        .plotmovie:lang(en) {
+            display: inline ;
+            float: none ;
+
+            font-size: 0.75em ;
+
+            box-shadow: 6px -6px 10px 2px darkgreen ;
+            -moz-box-shadow: 6px -6px 10px 2px darkgreen ;
+            -webkit-box-shadow: 6px -6px 10px 2px darkgreen ;
+
+            background-color: white ;
+            color: darkgreen ;
+
+            position: relative ;
+            left: 0px ;
+            top: 50px ;
+
+            word-wrap: break-word ; /* normal */
+            word-break: hyphenate ; /* normal */
+        }
+        .plotmovie:hover {
+            font-family: Verdana, Geneva, sans-serif ;
+
+            font-size: 1em ;
+            font-weight: bold ;
+
+            box-shadow: 2px 2px 10px 2px darkviolet ;
+            -moz-box-shadow: 2px 2px 10px 2px darkviolet ;
+            -webkit-box-shadow: 2px 2px 10px 2px darkviolet ;
+
+            background-color: darkviolet ;
+            color: lightgreen ;
+
+            z-index: 1 ;
+        }
+
+/* categorias */
+        .catmovie {
+            display: inline ;
+            float: left ;
+
+            margin-left: 2em ;
+            margin-top: 2em ;
+
+            font-size: 1em ;
+            font-weight: bold ;
+
+            background-color: lightgray ;
+            color: goldenrod ;
+
+            border: 2px solid goldenrod ;
+
+            position: relative ;
+            left: 0px ;
+            top: 2em ;
+
+            z-index: 1 ;
+        }
+        .ddplotmovie:hover~.ddcatmovie .catmovie {
+            font-size: 0.75em ;
+
+            background-color: lightpink ;
+            color: chocolate ;
+        }

@@ -1,0 +1,406 @@
+        /*
+         * Infantil.css (Infantil_PT_e_EN em Interfaces.html)
+         *
+         * esconde os itens em Ingles abaixo da classe movie ,
+         * coloca background a branco, letras em varias fontes e cores ,
+         * coloca as imagens e os dados como parte de uma caixa com cantos redondos ,
+         * havendo :hover nos itens em Portugues (sao substituidos pelos itens em Ingles) ,
+         * havendo :hover nos itens em Ingles (sao mantidos visiveis) ,
+         * excepto as categorias, que aparecem sempre nos 2 idiomas ,
+         *
+         * coloca - imediatamente antes do primeiro personagem de cada actor/actriz
+         * e coloca / antes dos restantes personagens (se existirem) de cada actor
+         * (isto e', - separa o actor/actriz dos personagens, e / separa as personagens) .
+         */
+
+-* { border-style: solid ; border-width: 1px ; border-color: cyan ; } /* apenas para debug */
+
+        #btnInfantil { font-weight: bolder ; background-color: darkgrey ; }
+
+        .movie *[lang="en"] { display:none }
+
+/*
+ * 2 resets copiado de
+ * http://www.csszengarden.com/212/212.css
+ */
+
+/* meyer reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+        #topo:first-of-type:before {
+            content: "ATENCAO: Esta CSS tem efeitos ':hover' (a class movie - caixa de cantos redondos - onde se tem o rato em cima, actualmente, muda de cor de fundo, e os itens e nomes de itens em Portugues - de cor azul - sao substituidos pelos respectivos em Ingles de cor verde)." ;
+            display: block ;
+            font-size: 2em ;
+        }
+
+
+        .movie {
+            width: 640px ;
+            border-style: solid ;
+            border-width: 1px ;
+            border-color: deeppink ;
+            border-radius: 25px ;
+            display: block ;
+            float: none ;
+            height: 560px ;
+        }
+        .movie:nth-child(odd) { background-color: lightgray ; }
+        .movie:hover { background-color: wheat ; } /* silver */
+
+/* titulo */
+        .titlemovie {
+            float: none; /* right ; */ /* left ; */
+
+            /* ainda nao suportado */
+            /* rotation-point: 0% 100% ;
+            rotation: -90deg ; */
+
+            transform: rotate(90deg) ;
+            -moz-transform: rotate(90deg) ;
+            -webkit-transform: rotate(90deg) ;
+            -ms-transform: rotate(90deg) ;
+            -ie-transform: rotate(90deg) ;
+            -o-transform: rotate(90deg) ;
+/* http://www.useragentman.com/IETransformsTranslator/ */
+/* IE8+ - must be on one line, unfortunately */
+-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=-1.836909530733566e-16, M12=-1, M21=1, M22=-1.836909530733566e-16, SizingMethod='auto expand')";
+/* IE6 and 7 */
+filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=-1.836909530733566e-16,
+            M12=-1,
+            M21=1,
+            M22=-1.836909530733566e-16,
+            SizingMethod='auto expand');
+
+            transform-origin: 0% 100% ;
+            -moz-transform-origin: 0% 100% ;
+            -webkit-transform-origin: 0% 100% ;
+            -ms-transform-origin: 0% 100% ;
+            -ie-transform-origin: 0% 100% ;
+            -o-transform-origin: 0% 100% ;
+
+            position: relative ;
+            left: 0.5em ;
+            top: 0.25em ;
+
+            color: blue ;
+        }
+        .titlemovie *[lang="en"] { color: green ; }
+        .titlemovie:hover *[lang="pt"] { display: none ; }
+        .titlemovie:hover *[lang="en"] { display: inline ; }
+
+/* imagem */
+        .imgdescmovie {
+            /* float: left ; */
+
+            position: relative ;
+            left: 7em ;
+            top: -1em ;
+        }
+        .imgmovie {
+            float: left ;
+
+            position: relative ;
+            left: 1.5em ;
+            top: -1em ;
+        }
+
+/* data/ano */
+        .datedescmovie , .datemovie {
+            display: inline ;
+            float: none ;
+
+            /* ainda nao suportado */
+            /* rotation-point: 0% 100% ;
+            rotation: -90deg ; */
+
+            transform: rotate(90deg) ;
+            -moz-transform: rotate(90deg) ;
+            -webkit-transform: rotate(90deg) ;
+            -ms-transform: rotate(90deg) ;
+            -ie-transform: rotate(90deg) ;
+            -o-transform: rotate(90deg) ;
+/* http://www.useragentman.com/IETransformsTranslator/ */
+/* IE8+ - must be on one line, unfortunately */
+-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=-1.836909530733566e-16, M12=-1, M21=1, M22=-1.836909530733566e-16, SizingMethod='auto expand')";
+/* IE6 and 7 */
+filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=-1.836909530733566e-16,
+            M12=-1,
+            M21=1,
+            M22=-1.836909530733566e-16,
+            SizingMethod='auto expand');
+
+            transform-origin: 0% 100% ;
+            -moz-transform-origin: 0% 100% ;
+            -webkit-transform-origin: 0% 100% ;
+            -ms-transform-origin: 0% 100% ;
+            -ie-transform-origin: 0% 100% ;
+            -o-transform-origin: 0% 100% ;
+        }
+        .datedescmovie {
+            position: relative ;
+            left: 1.5em ;
+            top: -2em ;
+
+            color: blue ;
+        }
+        .datedescmovie *[lang="en"] { color: green ; }
+        .datedescmovie:hover *[lang="pt"] { display: none ; }
+        .datedescmovie:hover *[lang="en"] { display: inline ; }
+        .datemovie:lang(en) , .datemovie:lang(pt) { display: inline ; }
+        .datemovie:lang(en) {
+            position: relative ;
+            left: 1.5em ;
+            top: -1.25em ;
+        }
+        .datemovie:lang(pt) {
+            position: relative ;
+            left: 1.5em ;
+            top: -0.25em ;
+        }
+        .datemovie:lang(pt):before { content: "(" ; }
+        .datemovie:lang(pt):after { content: ")" ; }
+
+/* duracao */
+        .durdescmovie , .dddurmovie /*, .durmovie , .durunitmovie*/ {
+            float: left ;
+
+            /* ainda nao suportado */
+            /* rotation-point: 0% 100% ;
+            rotation: -90deg ; */
+
+            transform: rotate(90deg) ;
+            -moz-transform: rotate(90deg) ;
+            -webkit-transform: rotate(90deg) ;
+            -ms-transform: rotate(90deg) ;
+            -ie-transform: rotate(90deg) ;
+            -o-transform: rotate(90deg) ;
+/* http://www.useragentman.com/IETransformsTranslator/ */
+/* IE8+ - must be on one line, unfortunately */
+-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=-1.836909530733566e-16, M12=-1, M21=1, M22=-1.836909530733566e-16, SizingMethod='auto expand')";
+/* IE6 and 7 */
+filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=-1.836909530733566e-16,
+            M12=-1,
+            M21=1,
+            M22=-1.836909530733566e-16,
+            SizingMethod='auto expand');
+
+            transform-origin: 0% 100% ;
+            -moz-transform-origin: 0% 100% ;
+            -webkit-transform-origin: 0% 100% ;
+            -ms-transform-origin: 0% 100% ;
+            -ie-transform-origin: 0% 100% ;
+            -o-transform-origin: 0% 100% ;
+        }
+        .durdescmovie {
+            display: inline ;
+
+            position: relative ;
+            left: 1.5em ;
+            top: 6.5em ; /* 1.5em ; */
+
+            color: blue ;
+        }
+        .durdescmovie *[lang="en"] { color: green ; }
+        .durdescmovie:hover *[lang="pt"] { display: none ; }
+        .durdescmovie:hover *[lang="en"] { display: inline ; }
+        .dddurmovie /*, .durmovie , .durunitmovie*/ {
+            display: block ;
+            float: left ;
+
+            position: relative ;
+            left: -1.75em ;
+            top: 10em ; /* 5em ; */
+        }
+        .dddurmovie *[lang="pt"] { color: blue ; }
+        .dddurmovie *[lang="en"] { color: green ; }
+        .dddurmovie:hover *[lang="pt"] { display: none ; }
+        .dddurmovie:hover *[lang="en"] { display: inline ; }
+
+/* realizador */
+        .dirdescmovie {
+            display: block ;
+            float: none ;
+
+            position: relative ;
+            left: -5em ;
+            top: -5em ;
+
+            color: blue ;
+        }
+        .dirdescmovie *[lang="en"] { color: green ; }
+        .dirdescmovie:hover *[lang="pt"] { display: none ; }
+        .dirdescmovie:hover *[lang="en"] { display: inline ; }
+        .dddirmovie , .dirmovie {
+            display: inline ;
+            float: left ;
+
+            position: relative ;
+            left: 4.5em ;
+            top: -3.10em ;
+        }
+        .dddirmovie+.dddirmovie .dirmovie:before { content: " , " ; }
+        /* .dddirmovie:first-of-type .dirmovie:before { content: normal ; }
+         * .dddirmovie .dirmovie:after { content: " , " ; }
+         * .dddirmovie:last-of-type .dirmovie:after { content: normal ; } */
+
+/* actores e personagens */
+        /* antes de 1st personagen (cada 2nd span, e que este tenha class .charmovie) */
+        span.charmovie:nth-of-type(2):before { content: " - " ; }
+
+        /* antes de restantes personagens */
+        span.charmovie:not(:nth-of-type(2)):before { content: " / " ; }
+
+        .actgrpdescmovie {
+            display: block ;
+            float: none ;
+
+            /* position: static = flow ; absolute = to ancestor not static */
+            /* position: ; fixed = to browser ; relative = to normal ; inherit = parent */
+            position: relative ;
+            left: 0em ;
+            top: 0em ;
+        }
+        .actgrpdescmovie span {
+            position: absolute ;
+            left: 16.1em ;
+            top: -5em ;
+
+            color: blue ;
+        }
+        .actgrpdescmovie *[lang="en"] { color: green ; }
+        .actgrpdescmovie:hover *[lang="pt"] { display: none ; }
+        .actgrpdescmovie:hover *[lang="en"] { display: inline ; }
+        .ddactmovie {
+            display: block ; /* inline ; */
+            float: none ; /* right left ; */
+
+            width: 240px ;
+
+            /* position: static = flow ; absolute = to ancestor not static */
+            /* position: ; fixed = to browser ; relative = to normal ; inherit = parent */
+            position: relative ;
+            left: 0em ;
+            top: 0em ;
+        }
+        .actmovie {
+            display: inline ; /* block ; */
+            float: none ; /* left ; */
+
+            position: relative ; /* absolute ; */
+            left: 24em ;
+            top: -19.75em ;
+        }
+        .charmovie {
+            display: inline ; /* block ; */
+            float: none ; /* left ; */
+
+            position: relative ; /* absolute ; */
+            left: 24em ;
+            top: -19.75em ;
+        }
+
+/* sinopse */
+        .plotdescmovie {
+            display: block ;
+            float: none ;
+
+            /* position: static = flow ; absolute = to ancestor not static */
+            /* position: ; fixed = to browser ; relative = to normal ; inherit = parent */
+            position: relative ;
+            left: 16.25em ;
+            top: -20em ;
+
+            color: blue ;
+        }
+        .plotdescmovie *[lang="en"] { color: green ; }
+        .plotdescmovie:hover *[lang="pt"] { display: none ; }
+        .plotdescmovie:hover *[lang="en"] { display: inline ; }
+        .ddplotmovie {
+            display: block ;
+            float: none ;
+
+            width: 380px ; /* (120+260)px */
+
+            text-align: justify ;
+            /* text-justify: inter-word ; */ /* auto ; */
+
+            /* position: static = flow ; absolute = to ancestor not static */
+            /* position: ; fixed = to browser ; relative = to normal ; inherit = parent */
+            position: relative ;
+            left: 16.25em ;
+            top: -20em ;
+
+            color: blue ;
+        }
+        .ddplotmovie *[lang="en"] { color: green ; }
+        .ddplotmovie:hover *[lang="pt"] { display: none ; }
+        .ddplotmovie:hover *[lang="en"] { display: block ; }
+
+/* categorias */
+        .catdescmovie {
+            display: inline ; /* block ; */
+            float: left ; /* none ; */
+            display: block ;
+            float: none ;
+
+            /* position: static = flow ; absolute = to ancestor not static */
+            /* position: ; fixed = to browser ; relative = to normal ; inherit = parent */
+            position: relative ;
+            left: 16.25em ;
+            top: -20em ; /* -10em ; */
+
+            color: blue ;
+        }
+        .ddcatmovie *[lang="en"] , .ddcatmovie *[lang="pt"] {
+            display: inline ; /* block ; */
+            float: none ; /* left ; */
+
+            text-align: justify ;
+            /* text-justify: inter-word ; */ /* auto ; */
+
+            /* position: static = flow ; absolute = to ancestor not static */
+            /* position: ; fixed = to browser ; relative = to normal ; inherit = parent */
+            position: relative ;
+            left: 16.25em ;
+            top: -20em ; /* -20em ; */ /* -10em ; */
+        }
+        .ddcatmovie *[lang="pt"] {
+            color: darkblue ;
+            background-color: lightblue ;
+
+            /* top: -18em ; */ /* -20em ; */ /* -10em ; */
+        }
+        .ddcatmovie *[lang="en"] {
+            color: darkgreen ;
+            background-color: lightgreen ;
+
+            /* top: -19em ; */ /* -20em ; */ /* -10em ; */
+        }
+
+/*
+ * TODO: EXPERT VERSION: fazer com que nao haja espaco em branco depois das categorias
+ */
